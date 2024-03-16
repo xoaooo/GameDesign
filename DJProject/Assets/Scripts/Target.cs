@@ -3,6 +3,7 @@ using UnityEngine;
 public class Target : MonoBehaviour
 {
     public float health = 50f;
+    public float damage;
     public float speed;
     private GameObject player;
 
@@ -13,9 +14,8 @@ public class Target : MonoBehaviour
 
     void Update()
     {
-        Vector2 direction = player.transform.position - transform.position;
-
-        transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, speed * Time.deltaTime);
+        if(player != null)
+            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
     }
 
     public void TakeDamage(float amount)

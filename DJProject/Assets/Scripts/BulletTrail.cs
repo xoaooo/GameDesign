@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using static VectorExtension;
 
@@ -7,8 +5,8 @@ public class BulletTrail : MonoBehaviour
 {
     private Vector3 _startPosition;
     private Vector3 _targetPosition;
-    private float _progress = 10f;
-    [SerializeField] private float _speed = 40f;
+    private readonly float _progress = 10f;
+    
 
     void Start()
     {

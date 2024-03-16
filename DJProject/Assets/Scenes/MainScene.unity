@@ -230,41 +230,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1a5627e46ae03440b60c2810b72434d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 0
+  _speed: 40
   _gunPoint: {fileID: 1539383728}
   _bulletTrail: {fileID: 1403712789598159401, guid: 9d45c797c3a8a5a489a638ee9f7007ac, type: 3}
   _weaponRange: 10
---- !u!1 &86047279
-GameObject:
+--- !u!114 &66383483
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 86047280}
-  m_Layer: 0
-  m_Name: MuzzleFlash
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &86047280
-Transform:
+  m_GameObject: {fileID: 66383472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90c872ebdfa6ce7459157469b6d92f10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  invulnerabilityTime: 0.2
+  flashColor: {r: 1, g: 0, b: 0, a: 0.5}
+  knockback: {fileID: 66383486}
+  rb: {fileID: 0}
+--- !u!114 &66383486
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 86047279}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1539383728}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_GameObject: {fileID: 66383472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89dbd7307437dd04c88196344cf1ba96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 66383478}
+  strength: 15
+  delay: 0.15
+  onBegin:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDone:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &313551582
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -352,6 +359,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 196096, guid: 816ec972959427243845c4776a0a7dea, type: 3}
       insertIndex: -1
       addedObject: {fileID: 66383482}
+    - targetCorrespondingSourceObject: {fileID: 196096, guid: 816ec972959427243845c4776a0a7dea, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 66383483}
+    - targetCorrespondingSourceObject: {fileID: 196096, guid: 816ec972959427243845c4776a0a7dea, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 66383486}
   m_SourcePrefab: {fileID: 100100000, guid: 816ec972959427243845c4776a0a7dea, type: 3}
 --- !u!1 &511445342
 GameObject:
@@ -398,6 +411,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countdown: 2
+  enemyScale: 0.2
   enemyPrefab: {fileID: 8028504333613449318, guid: df083ad502d97fc4d85f4c95d686c40e, type: 3}
 --- !u!1 &519420028
 GameObject:
@@ -782,8 +796,7 @@ Transform:
   m_LocalPosition: {x: 0.016, y: 0.183, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 86047280}
+  m_Children: []
   m_Father: {fileID: 66383481}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1694959884
