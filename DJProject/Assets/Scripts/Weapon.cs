@@ -2,10 +2,17 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip pistolSound;
     [SerializeField] private float _speed;
     [SerializeField] private Transform _gunPoint;
     [SerializeField] private GameObject _bulletTrail;
     [SerializeField] private float _weaponRange = 10f;
+
+    private void Start()
+    {
+        audioSource.clip = pistolSound;
+    }
 
     void Update()
     {
@@ -14,6 +21,7 @@ public class Weapon : MonoBehaviour
         if (Input.GetButtonDown("Fire1")) 
         {
             Shoot();
+            audioSource.Play();
         }
     }
 

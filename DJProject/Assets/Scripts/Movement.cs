@@ -33,6 +33,5 @@ public class Movement : MonoBehaviour
         Vector3 moveDirection = new Vector3(inputVector.x, 0f, inputVector.y);
         transform.position += (Vector3) inputVector * moveSpeed * Time.deltaTime;
         
-        //transform.forward = Vector3.Slerp(transform.forward, moveDirection, Time.deltaTime);
     }
 }

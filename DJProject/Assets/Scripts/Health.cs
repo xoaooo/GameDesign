@@ -3,10 +3,13 @@ using System.Collections;
 
 public class CharacterHealth : MonoBehaviour
 {
+    [SerializeField] AudioSource audioSource, musicSource;
+    [SerializeField] AudioClip hitSound, deathSound;
+    
     public float health = 100f;
     public float invulnerabilityTime = 0.5f; // Time in seconds for invulnerability after taking damage
 
-    public Color flashColor = new Color(1f, 0f, 0f, 0.5f); // Flash color (red with 50% transparency)
+    public Color flashColor = new(1f, 0f, 0f, 0.5f); // Flash color (red with 50% transparency)
     private SpriteRenderer spriteRenderer;
 
     private bool isInvulnerable = false;
@@ -17,6 +20,7 @@ public class CharacterHealth : MonoBehaviour
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        audioSource.clip = hitSound;
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -25,6 +29,7 @@ public class CharacterHealth : MonoBehaviour
         {
             Target enemy = collision.gameObject.GetComponent<Target>();
             TakeDamage(enemy);
+            audioSource.Play();
             knockback.PlayFeedback(collision.gameObject);
             StartCoroutine(InvulnerabilityTimer());
         }
@@ -35,6 +40,8 @@ public class CharacterHealth : MonoBehaviour
         health -= enemy.damage;
         if (health <= 0)
         {
+            audioSource.clip = deathSound;
+            musicSource.Stop();
             Destroy(gameObject);
         }
     }
