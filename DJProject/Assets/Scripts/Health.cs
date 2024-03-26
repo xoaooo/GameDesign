@@ -25,13 +25,24 @@ public class CharacterHealth : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!isInvulnerable && collision.gameObject.CompareTag("Enemy"))
+        if (!isInvulnerable)
         {
-            Target enemy = collision.gameObject.GetComponent<Target>();
-            TakeDamage(enemy);
-            audioSource.Play();
-            knockback.PlayFeedback(collision.gameObject);
-            StartCoroutine(InvulnerabilityTimer());
+            if (collision.gameObject.CompareTag("Enemy"))
+            {
+                Target enemy = collision.gameObject.GetComponent<Target>();
+                enemy.GetComponent<Rigidbody2D>().freezeRotation = true;
+                TakeDamage(enemy);
+                audioSource.Play();
+                knockback.PlayFeedback(collision.gameObject);
+                StartCoroutine(InvulnerabilityTimer());
+            }
+            else if (collision.gameObject.CompareTag("HitObstacle"))
+            {
+                health -= 10f;
+                audioSource.Play();
+                knockback.PlayFeedback(collision.gameObject);
+                StartCoroutine(InvulnerabilityTimer());
+            }
         }
     }
 

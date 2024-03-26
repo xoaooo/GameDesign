@@ -4,26 +4,42 @@ using UnityEngine;
 public class WaveSpawner : MonoBehaviour
 {
     [SerializeField] private float countdown = 2f;
+    [SerializeField] private float respawnTime = 2f;
     public float enemyScale;
-    public GameObject enemyPrefab;
+    private int waveStatus = 0; // 0 - Pick new enemy 1- Start Wave 2 - End Wave
+    public GameObject[] enemies;
+    private GameObject enemy;
+    public float waveTime;
 
     void Update()
     {
-        if (countdown <= 0f)
+        if (waveStatus == 0) 
         {
-            StartCoroutine(SpawnWave());
-            countdown = 2f;
+            enemy = enemies[Random.Range(0, enemies.Length)];
+            waveStatus = 1;
         }
-        else
+        
+        if(waveStatus == 1)
         {
+            if (countdown <= 0f)
+            {
+                StartCoroutine(SpawnWave());
+                countdown = respawnTime;
+            }
+            waveTime -= Time.deltaTime;
             countdown -= Time.deltaTime;
-        }
+
+            if (waveTime <= 0)
+            {
+                waveStatus = 2;
+            }
+        }       
+        
     }
 
     private IEnumerator SpawnWave()
     {
-        GameObject enemy = Instantiate(enemyPrefab, transform.position, transform.rotation);
-        enemy.transform.localScale = new Vector3(enemyScale, enemyScale, enemyScale);
+        Instantiate(enemy, transform.position, transform.rotation);
         yield return new WaitForSeconds(1f);
     }
 }
