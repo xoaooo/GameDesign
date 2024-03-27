@@ -488,7 +488,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.4, y: 0.4}
+    oldSize: {x: 5.423196, y: 4.7400002}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -795,11 +795,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 462198, guid: 816ec972959427243845c4776a0a7dea, type: 3}
       propertyPath: m_LocalScale.x
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 462198, guid: 816ec972959427243845c4776a0a7dea, type: 3}
       propertyPath: m_LocalScale.y
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 462198, guid: 816ec972959427243845c4776a0a7dea, type: 3}
       propertyPath: m_LocalScale.z
@@ -845,6 +845,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9574522, guid: 816ec972959427243845c4776a0a7dea, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 401489bf711e2dc45ad2b0a2abba2712, type: 2}
+    - target: {fileID: 9574522, guid: 816ec972959427243845c4776a0a7dea, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 21221664, guid: 816ec972959427243845c4776a0a7dea, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1871909101, guid: 3f33f007eeb3cdc4eab207a18865d088, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
