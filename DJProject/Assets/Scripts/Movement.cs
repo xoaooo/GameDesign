@@ -6,6 +6,13 @@ public class Movement : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 3f;
 
+    private Animator animator;
+
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -30,6 +37,8 @@ public class Movement : MonoBehaviour
         
         inputVector = inputVector.normalized;
 
+        animator.SetBool("isWalking", inputVector != Vector2.zero);
+        
         Vector3 moveDirection = new Vector3(inputVector.x, 0f, inputVector.y);
         transform.position += (Vector3) inputVector * moveSpeed * Time.deltaTime;
         
