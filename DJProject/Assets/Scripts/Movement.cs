@@ -1,10 +1,18 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 3f;
+
+    private bool canDash = true, isDashing;
+    private float dashingPower = 24f;
+    private float dashTime = 0.2f;
+    private float dashingCooldown = 1f;
+    [SerializeField] private Rigidbody2D rb;
+
+    public Color flashColor;
+    private SpriteRenderer spriteRenderer;
 
     private Animator animator;
 
@@ -13,34 +21,73 @@ public class Movement : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
+    private void Start()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
     // Update is called once per frame
     void Update()
     {
+        Vector3 mousePostition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 inputVector = new Vector2(0, 0);
+
+        if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
+        {
+            StartCoroutine(Dashing());
+        }
+
+        if (!isDashing)
+        {
+            if (Input.GetKey(KeyCode.W))
+            {
+                inputVector.y += 1;
+            }
+            if (Input.GetKey(KeyCode.S))
+            {
+                inputVector.y -= 1;
+            }
+            if (Input.GetKey(KeyCode.A))
+            {
+                transform.localScale = new Vector3(-0.5f, 0.5f, 0.5f); // Flip the player to face left
+                inputVector.x -= 1;
+            }
+            if (Input.GetKey(KeyCode.D))
+            {
+                transform.localScale = new Vector3(0.5f, 0.5f, 1);
+                inputVector.x += 1;
+            }
+
+   
+
+            inputVector = inputVector.normalized;
+
+            animator.SetBool("isWalking", inputVector != Vector2.zero);
+
+            transform.position += (Vector3)inputVector * moveSpeed * Time.deltaTime;
+        }
         
+    }
+
+    private IEnumerator Dashing()
+    {
+        canDash = false;
+        isDashing = true;
         if (Input.GetKey(KeyCode.W))
         {
-            inputVector.y += 1;
+            rb.velocity = new Vector2(transform.localScale.x, transform.localScale.y) * dashingPower;
         }
-        if (Input.GetKey(KeyCode.S))
+        else if (Input.GetKey(KeyCode.S))
         {
-            inputVector.y -= 1;
+            rb.velocity = new Vector2(transform.localScale.x, -transform.localScale.y) * dashingPower;
         }
-        if (Input.GetKey(KeyCode.A))
-        {
-            inputVector.x -= 1;
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            inputVector.x += 1;
-        }
-        
-        inputVector = inputVector.normalized;
-
-        animator.SetBool("isWalking", inputVector != Vector2.zero);
-        
-        Vector3 moveDirection = new Vector3(inputVector.x, 0f, inputVector.y);
-        transform.position += (Vector3) inputVector * moveSpeed * Time.deltaTime;
-        
+        else
+            rb.velocity = new Vector2(transform.localScale.x, 0) * dashingPower;
+        spriteRenderer.color = flashColor;
+        yield return new WaitForSeconds(dashTime);
+        rb.velocity = new Vector2(0, 0);
+        spriteRenderer.color = Color.white;
+        isDashing = false;
+        canDash = true;
     }
 }

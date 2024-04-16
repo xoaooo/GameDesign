@@ -16,19 +16,11 @@ public class Weapon : MonoBehaviour
 
     void Update()
     {
-        LookAtMouse();
-
         if (Input.GetButtonDown("Fire1")) 
         {
             Shoot();
             audioSource.Play();
         }
-    }
-
-    private void LookAtMouse()
-    {
-        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        transform.up = (mousePos - new Vector2(transform.position.x, transform.position.y));
     }
     
     private void Shoot()

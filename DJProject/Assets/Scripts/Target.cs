@@ -5,7 +5,7 @@ public class Target : MonoBehaviour
     public float health = 50f;
     public float damage;
     public float speed;
-    private GameObject player;
+    private GameObject player, meat;
 
     void Start()
     {
@@ -14,7 +14,12 @@ public class Target : MonoBehaviour
 
     void Update()
     {
-        if(player != null)
+        meat = GameObject.FindWithTag("Meat");
+        if (meat != null)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, meat.transform.position, speed * Time.deltaTime);
+        }
+        else if (player != null)
             transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
     }
 
