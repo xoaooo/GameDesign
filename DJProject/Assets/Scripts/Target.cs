@@ -5,6 +5,7 @@ public class Target : MonoBehaviour
     public float health = 50f;
     public float damage;
     public float speed;
+    public GameObject coin;
     private GameObject player, meat;
 
     void Start()
@@ -35,5 +36,6 @@ public class Target : MonoBehaviour
     void Die()
     {
         Destroy(gameObject);
+        Instantiate(coin, transform.position, transform.rotation);
     }
 }
