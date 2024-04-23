@@ -833,6 +833,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7174813772d0024dad47ee1ee011b21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coins: 0
+  coinAmount: {fileID: 239038331}
 --- !u!114 &66383496
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1033,6 +1035,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ffcc96be401f6f46bf6b3b97547d8e0, type: 3}
+--- !u!114 &239038331 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7811560950213956954, guid: cefc4b108b91d1b4085474d5c96dd89d, type: 3}
+  m_PrefabInstance: {fileID: 1170354271}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &313551582
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2656,8 +2669,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 494826476}
     m_Modifications:
     - target: {fileID: 164714180177808489, guid: cefc4b108b91d1b4085474d5c96dd89d, type: 3}
+      propertyPath: m_Name
+      value: coinAmount
+      objectReference: {fileID: 0}
+    - target: {fileID: 164714180177808489, guid: cefc4b108b91d1b4085474d5c96dd89d, type: 3}
       propertyPath: m_Layer
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 164714180177808489, guid: cefc4b108b91d1b4085474d5c96dd89d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1032169419963563392, guid: cefc4b108b91d1b4085474d5c96dd89d, type: 3}
       propertyPath: m_Layer
@@ -2786,6 +2807,10 @@ PrefabInstance:
     - target: {fileID: 6816461892744997747, guid: cefc4b108b91d1b4085474d5c96dd89d, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7811560950213956954, guid: cefc4b108b91d1b4085474d5c96dd89d, type: 3}
+      propertyPath: m_text
+      value: "0\t"
       objectReference: {fileID: 0}
     - target: {fileID: 8068680703471180656, guid: cefc4b108b91d1b4085474d5c96dd89d, type: 3}
       propertyPath: m_Layer

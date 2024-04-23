@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 public class CharacterHealth : MonoBehaviour
 {
     [SerializeField] AudioSource audioSource, musicSource;
@@ -55,11 +55,13 @@ public class CharacterHealth : MonoBehaviour
     {
         health -= enemy.damage;
         healthBar.fillAmount = health / 100f;
+
         if (health <= 0)
         {
             audioSource.clip = deathSound;
             musicSource.Stop();
             Destroy(gameObject);
+            SceneManager.LoadScene("Game Over", LoadSceneMode.Single);
         }
     }
 
