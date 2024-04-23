@@ -55,16 +55,7 @@ public class Map : MonoBehaviour
         CreateTileset();
         CreateTilemap();
         GenerateMap();
-    }
-
-    void Update()
-    {
-        if (Input.GetKey(KeyCode.Space))
-        {
-            //CreateTilemap();
-            GenerateMapTerrainContours();
-        }
-        
+        tilemap.transform.position -= tilemap.localBounds.size / 2.0f;
     }
 
     void CreateTileset()
@@ -111,8 +102,6 @@ public class Map : MonoBehaviour
             {
                 ushort tile_id = GetTerrainId(x, y);
                 noise_grid[x].Add(tile_id);
-
-                //InsertTile(tile_id, x, y);
             }
         }
     }
@@ -133,66 +122,54 @@ public class Map : MonoBehaviour
                 bool tile8 = noise_grid[x + 1][y - 1] == id_grass;
 
                 ushort tileId = noise_grid[x][y];
-                Debug.Log("x=" + x + " y=" + y +" t="+ noise_grid[x][y]);
-                Debug.Log(string.Format("" + tile1 + "|" + tile2 + "|" + tile3 + "\n" + tile4 + "|tile|" + tile5 + "\n" + tile6 + "|" + tile7 + "|" + tile8 + "\n"));
+                //Debug.Log("x=" + x + " y=" + y +" t="+ noise_grid[x][y]);
+                //Debug.Log(string.Format("" + tile1 + "|" + tile2 + "|" + tile3 + "\n" + tile4 + "|tile|" + tile5 + "\n" + tile6 + "|" + tile7 + "|" + tile8 + "\n"));
                 if (tile1 == false && tile2 == true && tile3 == true && tile4 == true && tile5 == true && tile6 == true && tile7 == true && tile8 == true)
                 {
-                    Debug.Log("I");
                     tileId = id_contourI;
                 }
                 else if (tile1 == true && tile2 == true && tile3 == false && tile4 == true && tile5 == true && tile6 == true && tile7 == true && tile8 == true)
                 {
-                    Debug.Log("J");
                     tileId = id_contourJ;
                 }
                 else if (tile1 == true && tile2 == true && tile3 == true && tile4 == true && tile5 == true && tile6 == true && tile7 == true && tile8 == false)
                 {
-                    Debug.Log("K");
                     tileId = id_contourK;
                 }
                 else if (tile1 == true && tile2 == true && tile3 == true && tile4 == true && tile5 == true && tile6 == false && tile7 == true && tile8 == true)
                 {
-                    Debug.Log("L");
                     tileId = id_contourL;
                 }
                 else if (tile2 == false && tile4 == true && tile5 == true && tile6 == true && tile7 == true && tile8 == true && tileId == id_grass)
                 {
-                    Debug.Log("B");
                     tileId = id_contourB;
                 }
                 else if (tile2 == true && tile3 == true && tile4 == false && tile5 == true && tile7 == true && tile8 == true && tileId == id_grass)
                 {
-                    Debug.Log("D");
                     tileId = id_contourD;
                 }
                 else if (tile1 == true && tile2 == true && tile4 == true && tile5 == false && tile6 == true && tile7 == true && tileId == id_grass)
                 {
-                    Debug.Log("E");
                     tileId = id_contourE;
                 }
                 else if (tile1 == true && tile2 == true && tile3 == true && tile4 == true && tile5 == true && tile7 == false && tileId == id_grass)
                 {
-                    Debug.Log("G");
                     tileId = id_contourG;
                 }
                 else if (tile1 == false && tile2 == false && tile4 == false && tile5 == true && tile7 == true && tile8 == true && tileId == id_grass)
                 {
-                    Debug.Log("A");
                     tileId = id_contourA;
                 }
                 else if (tile2 == false && tile3 == false && tile4 == true && tile5 == false && tile6 == true && tile7 == true && tileId == id_grass)
                 {
-                    Debug.Log("C");
                     tileId = id_contourC;
                 }
                 else if (tile2 == true && tile3 == true && tile4 == false && tile5 == true && tile6 == false && tile7 == false && tileId == id_grass)
                 {
-                    Debug.Log("F");
                     tileId = id_contourF;
                 }
                 else if (tile1 == true && tile2 == true && tile4 == true && tile5 == false && tile7 == false && tile8 == false && tileId == id_grass)
                 {
-                    Debug.Log("H");
                     tileId = id_contourH;
                 }
                 InsertTile(tileId, x, y);
