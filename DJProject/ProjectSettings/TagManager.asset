@@ -8,6 +8,7 @@ TagManager:
   - HitObstacle
   - Gun
   - Meat
+  - Coin
   layers:
   - Default
   - TransparentFX

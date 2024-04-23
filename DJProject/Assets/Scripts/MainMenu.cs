@@ -7,17 +7,17 @@ public class StartGame : MonoBehaviour
 {
     private void Start()
     {
-        
+
     }
     private void Update()
     {
-        
+
     }
     // Start is called before the first frame update
     public void StartGam()
     {
         SceneManager.LoadScene("MainScene", LoadSceneMode.Single);
-    
+
     }
 
     public void Settings()
@@ -28,5 +28,10 @@ public class StartGame : MonoBehaviour
     public void Tutorial()
     {
         SceneManager.LoadScene("Tutorial", LoadSceneMode.Single);
+    }
+
+    public void playAgain()
+    {
+        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
     }
 }
