@@ -40105,6 +40105,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1835747556}
   - component: {fileID: 1835747555}
+  - component: {fileID: 1835747557}
   m_Layer: 0
   m_Name: Grid
   m_TagString: Untagged
@@ -40140,6 +40141,55 @@ Transform:
   - {fileID: 754489491}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1835747557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1835747554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b0fecbb5affdb74ea915873c0bdd492, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grass:
+  - {fileID: 11400000, guid: 9b2c4d6001ecfca4c9b462c90420c07d, type: 2}
+  - {fileID: 11400000, guid: 0f75cd78957f35944b42cf163ddb6e56, type: 2}
+  - {fileID: 11400000, guid: ea3587f0e3b062b40911ab4b2469f977, type: 2}
+  soil:
+  - {fileID: 11400000, guid: 9de6601553c01494eb7857a08b6623d1, type: 2}
+  - {fileID: 11400000, guid: 9dc50363e2dd70c4fb3f78b110820488, type: 2}
+  - {fileID: 11400000, guid: 0766238ba120a9c4c8772f4a54025c95, type: 2}
+  contourA:
+  - {fileID: 11400000, guid: c1160e0c8d9e3cf40a870e52fd378570, type: 2}
+  contourB:
+  - {fileID: 11400000, guid: 591e82a5a93319b40a3ea154937a7e30, type: 2}
+  contourC:
+  - {fileID: 11400000, guid: 46d6303343c1ab7479ac6d4cf3d0f293, type: 2}
+  contourD:
+  - {fileID: 11400000, guid: 71c50602b3f935b44897720aeda13e7d, type: 2}
+  contourE:
+  - {fileID: 11400000, guid: 77d5a121faa3fcd46af8ed1895f8b024, type: 2}
+  contourF:
+  - {fileID: 11400000, guid: f2ff342bf717d17458a264754b5f3248, type: 2}
+  contourG:
+  - {fileID: 11400000, guid: 9b72feeeb89b6dd4e81c4b25614a96a7, type: 2}
+  contourH:
+  - {fileID: 11400000, guid: c352c65825adfc74d97805fac5185211, type: 2}
+  contourI:
+  - {fileID: 11400000, guid: d8236409a70dd914686fc0e8e5d2cc47, type: 2}
+  contourJ:
+  - {fileID: 11400000, guid: c0afefc125aa0f144a65d88b881cd68c, type: 2}
+  contourK:
+  - {fileID: 11400000, guid: 63b6ea1244ea254428217dd3c163f5ae, type: 2}
+  contourL:
+  - {fileID: 11400000, guid: aa0493b189a81494aa2e90c4a1fdd3e6, type: 2}
+  map_width: 100
+  map_height: 100
+  magnification: 14
+  x_offset: 0
+  y_offset: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
