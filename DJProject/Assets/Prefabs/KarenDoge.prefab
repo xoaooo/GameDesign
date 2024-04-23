@@ -113,7 +113,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &6489837801826526182
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -175,3 +175,4 @@ MonoBehaviour:
   damage: 100
   speed: 1
   coin: {fileID: 5693812885232298421, guid: 379c78f5fd61fe04b91ccd9c4d306306, type: 3}
+  godModeTimer: 5

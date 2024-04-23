@@ -32,13 +32,16 @@ public class CharacterHealth : MonoBehaviour
         {
             if (collision.gameObject.CompareTag("Enemy"))
             {
-
                 Target enemy = collision.gameObject.GetComponent<Target>();
-                enemy.GetComponent<Rigidbody2D>().freezeRotation = true;
-                TakeDamage(enemy);
-                audioSource.Play();
-                knockback.PlayFeedback(collision.gameObject);
-                StartCoroutine(InvulnerabilityTimer());
+  
+                if (!enemy.hasGodMode)
+                {
+                    enemy.GetComponent<Rigidbody2D>().freezeRotation = true;
+                    TakeDamage(enemy);
+                    audioSource.Play();
+                    knockback.PlayFeedback(collision.gameObject);
+                    StartCoroutine(InvulnerabilityTimer());
+                }
             }
             else if (collision.gameObject.CompareTag("HitObstacle"))
             {

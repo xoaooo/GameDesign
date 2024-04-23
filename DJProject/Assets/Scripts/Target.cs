@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Target : MonoBehaviour
@@ -7,6 +8,8 @@ public class Target : MonoBehaviour
     public float speed;
     public GameObject coin;
     private GameObject player, meat;
+    public bool hasGodMode = false;
+    public float godModeTimer = 5f;
 
     void Start()
     {
@@ -15,13 +18,30 @@ public class Target : MonoBehaviour
 
     void Update()
     {
-        meat = GameObject.FindWithTag("Meat");
-        if (meat != null)
+        
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            transform.position = Vector2.MoveTowards(transform.position, meat.transform.position, speed * Time.deltaTime);
+            Debug.Log("HIIIIIIIIIIIII");
+            StartCoroutine(GodModeTimer());
         }
-        else if (player != null)
-            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+
+
+        if (!hasGodMode)
+        {
+            meat = GameObject.FindWithTag("Meat");
+            if (meat != null)
+            {
+                transform.position = Vector2.MoveTowards(transform.position, meat.transform.position, speed * Time.deltaTime);
+            }
+            else if (player != null)
+                transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (hasGodMode)
+            Destroy(gameObject);
     }
 
     public void TakeDamage(float amount)
@@ -37,5 +57,18 @@ public class Target : MonoBehaviour
     {
         Destroy(gameObject);
         Instantiate(coin, transform.position, transform.rotation);
+    }
+
+    IEnumerator GodModeTimer()
+    {
+        hasGodMode = true;
+        runAway();
+        yield return new WaitForSeconds(godModeTimer);
+        hasGodMode = false;
+    }
+
+    private void runAway()
+    {
+        gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(-speed, speed);
     }
 }
