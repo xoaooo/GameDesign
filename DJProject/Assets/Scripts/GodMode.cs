@@ -9,6 +9,13 @@ public class GodMode : MonoBehaviour
     private GameObject player;
     private GameObject[] enemies;
 
+    private Animator animator;
+
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
+
     void Start()
     {
         player = GameObject.FindWithTag("Player");
@@ -31,12 +38,14 @@ public class GodMode : MonoBehaviour
     IEnumerator GodModeTimer()
     {
         hasGodMode = true;
+        animator.SetBool("hasGodmode", hasGodMode);
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
         runAway(enemies);
         yield return new WaitForSeconds(godModeTimer);
         //runToPlayer(enemies);
         
         hasGodMode = false;
+        animator.SetBool("hasGodmode", hasGodMode);
     }
 
     private void runAway(GameObject[] enemies)
