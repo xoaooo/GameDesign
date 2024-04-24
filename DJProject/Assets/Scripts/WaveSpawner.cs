@@ -6,8 +6,8 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] private float countdown = 2f;
     [SerializeField] private float respawnTime = 2f;
     public float enemyScale;
-    public int waveNumber = 0;
-    private int waveStatus = 0; // 0 - Pick new enemy 1- Start Wave 2 - End Wave
+    public static int waveNumber = 0;
+    private int waveStatus = 0; // 0 - Pick enemies 1- Spawn enemies 2 - End Wave
     public GameObject[] enemies;
     private GameObject enemy;
     public float waveTime;
@@ -34,9 +34,10 @@ public class WaveSpawner : MonoBehaviour
             if (waveTime <= 0)
             {
                 waveStatus = 2;
+                //start store menu or something
+                //waveStatus = 0 when leaving menu
             }
-        }       
-        
+        }           
     }
 
     private IEnumerator SpawnWave()

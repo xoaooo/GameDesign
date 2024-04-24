@@ -6,6 +6,7 @@ public class Target : MonoBehaviour
     public float health = 50f;
     public float damage;
     public float speed;
+    private float godModeCooldown = -1f;
     public GameObject coin;
     private GameObject player, meat;
     public bool hasGodMode = false;
@@ -18,10 +19,10 @@ public class Target : MonoBehaviour
 
     void Update()
     {
+        godModeCooldown--;
         
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0) && godModeCooldown <= 0)
         {
-            Debug.Log("HIIIIIIIIIIIII");
             StartCoroutine(GodModeTimer());
         }
 
@@ -64,6 +65,7 @@ public class Target : MonoBehaviour
         hasGodMode = true;
         runAway();
         yield return new WaitForSeconds(godModeTimer);
+        godModeCooldown = 10f;
         hasGodMode = false;
     }
 
