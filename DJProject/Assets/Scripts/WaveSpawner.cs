@@ -6,6 +6,7 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] private float countdown = 2f;
     [SerializeField] private float respawnTime = 2f;
     public float enemyScale;
+    public int waveNumber = 0;
     private int waveStatus = 0; // 0 - Pick new enemy 1- Start Wave 2 - End Wave
     public GameObject[] enemies;
     private GameObject enemy;
@@ -15,6 +16,7 @@ public class WaveSpawner : MonoBehaviour
     {
         if (waveStatus == 0) 
         {
+            waveNumber++;
             enemy = enemies[Random.Range(0, enemies.Length)];
             waveStatus = 1;
         }
