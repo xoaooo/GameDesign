@@ -6,11 +6,10 @@ public class Target : MonoBehaviour
     public float health = 50f;
     public float damage;
     public float speed;
-    private float godModeCooldown = -1f;
     public GameObject coin;
     private GameObject player, meat;
-    public bool hasGodMode = false;
-    public float godModeTimer = 5f;
+    public bool hasGodMode;
+    private bool canActivate;
 
     void Start()
     {
@@ -19,11 +18,15 @@ public class Target : MonoBehaviour
 
     void Update()
     {
-        godModeCooldown--;
-        
-        if (Input.GetKeyDown(KeyCode.Mouse0) && godModeCooldown <= 0)
+        Debug.Log(canActivate);
+        canActivate = player.GetComponent<GodMode>().canActivate;
+        hasGodMode = player.GetComponent<GodMode>().hasGodMode;
+
+        if (canActivate && Input.GetKeyDown(KeyCode.Mouse0))
         {
+            hasGodMode = true;
             StartCoroutine(GodModeTimer());
+            hasGodMode = false;
         }
 
 
@@ -41,8 +44,11 @@ public class Target : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (hasGodMode)
-            Destroy(gameObject);
+        if (hasGodMode && collision.gameObject.CompareTag("Player"))
+        {
+            Die();
+            Instantiate(coin, transform.position, transform.rotation);
+        }
     }
 
     public void TakeDamage(float amount)
@@ -57,16 +63,12 @@ public class Target : MonoBehaviour
     void Die()
     {
         Destroy(gameObject);
-        Instantiate(coin, transform.position, transform.rotation);
     }
 
     IEnumerator GodModeTimer()
     {
-        hasGodMode = true;
         runAway();
-        yield return new WaitForSeconds(godModeTimer);
-        godModeCooldown = 10f;
-        hasGodMode = false;
+        yield return new WaitForSeconds(5f);
     }
 
     private void runAway()

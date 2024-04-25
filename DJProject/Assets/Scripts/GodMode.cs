@@ -3,11 +3,11 @@ using UnityEngine;
 
 public class GodMode : MonoBehaviour
 {
-    private bool hasGodMode = false;
+    public bool hasGodMode = false;
     public float godModeTimer = 5f;
     public float speed;
-    private GameObject player;
     private GameObject[] enemies;
+    public bool canActivate = true;
 
     private Animator animator;
 
@@ -16,18 +16,12 @@ public class GodMode : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    void Start()
-    {
-        player = GameObject.FindWithTag("Player");
-        
-    }
     void Update()
     {
-        if (!hasGodMode)
+        if (!hasGodMode && canActivate)
         {
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
-                Debug.Log("HIIIIIIIIIIIII");
                 StartCoroutine(GodModeTimer());
             }
         }
@@ -37,31 +31,14 @@ public class GodMode : MonoBehaviour
 
     IEnumerator GodModeTimer()
     {
+        canActivate = false;
         hasGodMode = true;
         animator.SetBool("hasGodmode", hasGodMode);
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        runAway(enemies);
         yield return new WaitForSeconds(godModeTimer);
-        //runToPlayer(enemies);
-        
         hasGodMode = false;
         animator.SetBool("hasGodmode", hasGodMode);
-    }
-
-    private void runAway(GameObject[] enemies)
-    {
-        foreach (GameObject enemy in enemies)
-        {
-            Debug.Log(enemies.Length);
-            enemy.GetComponent<Rigidbody2D>().velocity = new Vector2(-speed, speed);
-        }
-    }
-
-    private void runToPlayer(GameObject[] enemies)
-    {
-        foreach (GameObject enemy in enemies)
-        {
-            enemy.transform.position = Vector2.MoveTowards(transform.position, player.transform.position, enemy.GetComponent<Target>().speed * Time.deltaTime);
-        }
+        yield return new WaitForSeconds(5f);
+        canActivate = true;
     }
 }

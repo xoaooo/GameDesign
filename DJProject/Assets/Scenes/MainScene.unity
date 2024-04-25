@@ -1813,8 +1813,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5e0737f55e2ee7418dd2765c703dd20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasGodMode: 0
   godModeTimer: 5
   speed: 0
+  canActivate: 1
 --- !u!4 &69774327 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7196101835270695838, guid: 957001356de41f64bb3d59f393655b34, type: 3}

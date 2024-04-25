@@ -8,7 +8,7 @@ public class Movement : MonoBehaviour
     private bool canDash = true, isDashing;
     private float dashingPower = 24f;
     private float dashTime = 0.2f;
-    private float dashingCooldown = 1f;
+    private float dashingCooldown = 3f;
     [SerializeField] private Rigidbody2D rb;
 
     public Color flashColor;
@@ -88,6 +88,7 @@ public class Movement : MonoBehaviour
         rb.velocity = new Vector2(0, 0);
         spriteRenderer.color = Color.white;
         isDashing = false;
+        yield return new WaitForSeconds(dashingCooldown);
         canDash = true;
     }
 }

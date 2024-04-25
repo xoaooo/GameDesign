@@ -75,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 070c66b5b447c634bb0a1ad4f9bec312, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -175,4 +175,4 @@ MonoBehaviour:
   damage: 10
   speed: 5
   coin: {fileID: 5693812885232298421, guid: 379c78f5fd61fe04b91ccd9c4d306306, type: 3}
-  godModeTimer: 5
+  hasGodMode: 0
