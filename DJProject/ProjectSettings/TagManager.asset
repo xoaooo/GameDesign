@@ -9,6 +9,7 @@ TagManager:
   - Gun
   - Meat
   - Coin
+  - CoinAmount
   layers:
   - Default
   - TransparentFX

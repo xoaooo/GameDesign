@@ -8,7 +8,6 @@ public class GodMode : MonoBehaviour
     public float speed;
     private GameObject[] enemies;
     public bool canActivate = true;
-
     private Animator animator;
 
     private void Awake()

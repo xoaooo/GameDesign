@@ -1,4 +1,6 @@
+using System;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class Target : MonoBehaviour
@@ -9,16 +11,20 @@ public class Target : MonoBehaviour
     public GameObject coin;
     private GameObject player, meat;
     public bool hasGodMode;
+    public TMP_Text coinAmount;
     private bool canActivate;
 
     void Start()
     {
+        GameObject textObject = GameObject.FindWithTag("CoinAmount");
+        coinAmount = textObject.GetComponent<TMP_Text>();
         player = GameObject.FindWithTag("Player");
+        coinAmount.text = PickCoin.coins.ToString();
     }
 
     void Update()
     {
-        Debug.Log(canActivate);
+        //Debug.Log(canActivate);
         canActivate = player.GetComponent<GodMode>().canActivate;
         hasGodMode = player.GetComponent<GodMode>().hasGodMode;
 
@@ -47,7 +53,8 @@ public class Target : MonoBehaviour
         if (hasGodMode && collision.gameObject.CompareTag("Player"))
         {
             Die();
-            Instantiate(coin, transform.position, transform.rotation);
+            PickCoin.coins += 10;
+            coinAmount.text = PickCoin.coins.ToString();
         }
     }
 
