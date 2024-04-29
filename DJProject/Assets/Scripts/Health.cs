@@ -20,10 +20,13 @@ public class CharacterHealth : MonoBehaviour
     [SerializeField] private Knockback knockback;
     [SerializeField] private Rigidbody2D rb;
 
+
+    AudioManager audioManager;
+
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        audioSource.clip = hitSound;
+        //audioSource.clip = hitSound;
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -38,7 +41,8 @@ public class CharacterHealth : MonoBehaviour
                 {
                     enemy.GetComponent<Rigidbody2D>().freezeRotation = true;
                     TakeDamage(enemy);
-                    audioSource.Play();
+                    //audioSource.Play();
+                    audioManager.PlaySFX(audioManager.damage);
                     knockback.PlayFeedback(collision.gameObject);
                     StartCoroutine(InvulnerabilityTimer());
                 }
@@ -47,24 +51,33 @@ public class CharacterHealth : MonoBehaviour
             {
                 health -= 10f;
                 healthBar.fillAmount = health / 100f;
-                audioSource.Play();
+                audioManager.PlaySFX(audioManager.damage);
                 knockback.PlayFeedback(collision.gameObject);
                 StartCoroutine(InvulnerabilityTimer());
+
+                if (health <= 0)
+                {
+                    StartCoroutine(GameOver());
+                    //audioManager.PlaySFX(audioManager.damage);
+                    //Destroy(gameObject);
+                    //SceneManager.LoadScene("Game Over", LoadSceneMode.Single);
+                }
             }
         }
     }
 
     void TakeDamage(Target enemy)
     {
+  
         health -= enemy.damage;
         healthBar.fillAmount = health / 100f;
 
         if (health <= 0)
         {
-            audioSource.clip = deathSound;
-            musicSource.Stop();
-            Destroy(gameObject);
-            SceneManager.LoadScene("Game Over", LoadSceneMode.Single);
+            StartCoroutine(GameOver());
+
+            //Destroy(gameObject);
+            //SceneManager.LoadScene("Game Over", LoadSceneMode.Single);
         }
     }
 
@@ -75,5 +88,23 @@ public class CharacterHealth : MonoBehaviour
         yield return new WaitForSeconds(invulnerabilityTime);
         spriteRenderer.color = Color.white;
         isInvulnerable = false;
+    }
+
+    IEnumerator GameOver()
+    {
+        Movement movement = GetComponent<Movement>();
+        if (movement != null)
+        {
+            movement.CanMove();
+        }
+        audioManager.PlayMusic(audioManager.death);
+        yield return new WaitForSeconds(audioManager.death.length);
+        Destroy(gameObject);
+        SceneManager.LoadScene("Game Over", LoadSceneMode.Single);
+    }
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 }

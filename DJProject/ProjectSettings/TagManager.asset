@@ -10,6 +10,8 @@ TagManager:
   - Meat
   - Coin
   - CoinAmount
+  - Shop
+  - Audio
   layers:
   - Default
   - TransparentFX

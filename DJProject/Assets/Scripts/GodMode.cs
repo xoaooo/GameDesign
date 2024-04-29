@@ -10,9 +10,13 @@ public class GodMode : MonoBehaviour
     public bool canActivate = true;
     private Animator animator;
 
+    AudioManager audioManager;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+
     }
 
     void Update()
@@ -21,11 +25,17 @@ public class GodMode : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
+                audioManager.PlaySFX(audioManager.godMode);
                 StartCoroutine(GodModeTimer());
             }
         }
+        else if (!hasGodMode && !canActivate && Input.GetKeyDown(KeyCode.Mouse0)) {
+
+            audioManager.PlaySFX(audioManager.nope);
+        }
 
     }
+
 
 
     IEnumerator GodModeTimer()

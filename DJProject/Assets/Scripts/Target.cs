@@ -14,12 +14,18 @@ public class Target : MonoBehaviour
     public TMP_Text coinAmount;
     private bool canActivate;
 
+    //public AudioSource audioManager;
+    // public AudioClip death, GODMODE, coinPickup;
+
+    AudioManager audioManager;
+
     void Start()
     {
         GameObject textObject = GameObject.FindWithTag("CoinAmount");
         coinAmount = textObject.GetComponent<TMP_Text>();
         player = GameObject.FindWithTag("Player");
         coinAmount.text = PickCoin.coins.ToString();
+        //audioManager = null;
     }
 
     void Update()
@@ -30,6 +36,9 @@ public class Target : MonoBehaviour
 
         if (canActivate && Input.GetKeyDown(KeyCode.Mouse0))
         {
+
+            //audioManager.clip = GODMODE;
+            //audioManager.Play();
             hasGodMode = true;
             StartCoroutine(GodModeTimer());
             hasGodMode = false;
@@ -52,8 +61,11 @@ public class Target : MonoBehaviour
     {
         if (hasGodMode && collision.gameObject.CompareTag("Player"))
         {
+            
             Die();
+            audioManager.PlaySFX(audioManager.coin);
             PickCoin.coins += 10;
+
             coinAmount.text = PickCoin.coins.ToString();
         }
     }
@@ -63,6 +75,8 @@ public class Target : MonoBehaviour
         health -= amount;
         if (health <= 0f)
         {
+            //audioManager.clip = death;
+            //audioManager.Play();
             Die();
         }
     }
@@ -81,5 +95,10 @@ public class Target : MonoBehaviour
     private void runAway()
     {
         gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(-speed, speed);
+    }
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 }
