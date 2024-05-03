@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -13,32 +12,27 @@ public class Target : MonoBehaviour
     public bool hasGodMode;
     public TMP_Text coinAmount;
     private bool canActivate;
-
-    //public AudioSource audioManager;
-    // public AudioClip death, GODMODE, coinPickup;
-
-    AudioManager audioManager;
-
+    private AudioManager audioManager;
+    
     void Start()
     {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        
         GameObject textObject = GameObject.FindWithTag("CoinAmount");
         coinAmount = textObject.GetComponent<TMP_Text>();
+        coinAmount.text = CoinBehaviour.coins.ToString();
+        
         player = GameObject.FindWithTag("Player");
-        coinAmount.text = PickCoin.coins.ToString();
-        //audioManager = null;
+        Physics2D.IgnoreLayerCollision(6, 7);
     }
 
     void Update()
     {
-        //Debug.Log(canActivate);
         canActivate = player.GetComponent<GodMode>().canActivate;
         hasGodMode = player.GetComponent<GodMode>().hasGodMode;
 
         if (canActivate && Input.GetKeyDown(KeyCode.Mouse0))
         {
-
-            //audioManager.clip = GODMODE;
-            //audioManager.Play();
             hasGodMode = true;
             StartCoroutine(GodModeTimer());
             hasGodMode = false;
@@ -62,11 +56,11 @@ public class Target : MonoBehaviour
         if (hasGodMode && collision.gameObject.CompareTag("Player"))
         {
             
-            Die();
+            Destroy(gameObject);
             audioManager.PlaySFX(audioManager.coin);
-            PickCoin.coins += 10;
+            CoinBehaviour.coins += 10;
 
-            coinAmount.text = PickCoin.coins.ToString();
+            coinAmount.text = CoinBehaviour.coins.ToString();
         }
     }
 
@@ -75,15 +69,8 @@ public class Target : MonoBehaviour
         health -= amount;
         if (health <= 0f)
         {
-            //audioManager.clip = death;
-            //audioManager.Play();
-            Die();
+            Destroy(gameObject);
         }
-    }
-
-    void Die()
-    {
-        Destroy(gameObject);
     }
 
     IEnumerator GodModeTimer()
@@ -95,10 +82,5 @@ public class Target : MonoBehaviour
     private void runAway()
     {
         gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(-speed, speed);
-    }
-
-    private void Awake()
-    {
-        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 }

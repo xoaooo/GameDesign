@@ -3,11 +3,8 @@ using UnityEngine;
 
 public class GodMode : MonoBehaviour
 {
-    public bool hasGodMode = false;
-    public float godModeTimer = 5f;
-    public float speed;
-    private GameObject[] enemies;
-    public bool canActivate = true;
+    public bool hasGodMode = false, canActivate = true;
+    public float speed, godModeTimer = 5f, godModeCooldown = 5f;
     private Animator animator;
 
     AudioManager audioManager;
@@ -41,13 +38,15 @@ public class GodMode : MonoBehaviour
     IEnumerator GodModeTimer()
     {
         canActivate = false;
+        
         hasGodMode = true;
         animator.SetBool("hasGodmode", hasGodMode);
-        enemies = GameObject.FindGameObjectsWithTag("Enemy");
         yield return new WaitForSeconds(godModeTimer);
-        hasGodMode = false;
         animator.SetBool("hasGodmode", hasGodMode);
-        yield return new WaitForSeconds(5f);
+        hasGodMode = false;
+        
+        yield return new WaitForSeconds(godModeCooldown);
+        
         canActivate = true;
     }
 }

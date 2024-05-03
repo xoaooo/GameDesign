@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5998151927407737420}
   - component: {fileID: 3591047999687609092}
   - component: {fileID: 232923199783653414}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PrussianDoge
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -176,3 +176,4 @@ MonoBehaviour:
   speed: 2
   coin: {fileID: 5693812885232298421, guid: 379c78f5fd61fe04b91ccd9c4d306306, type: 3}
   hasGodMode: 0
+  coinAmount: {fileID: 0}

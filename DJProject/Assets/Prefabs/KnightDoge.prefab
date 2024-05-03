@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -5932010749339920173}
   - component: {fileID: -8925878364268336147}
   - component: {fileID: 877650865104471739}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: KnightDoge
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -176,3 +176,4 @@ MonoBehaviour:
   speed: 2
   coin: {fileID: 5693812885232298421, guid: 379c78f5fd61fe04b91ccd9c4d306306, type: 3}
   hasGodMode: 0
+  coinAmount: {fileID: 0}

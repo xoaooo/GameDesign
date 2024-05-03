@@ -12,14 +12,17 @@ public class Knockback : MonoBehaviour
     {
         StopAllCoroutines();
         onBegin?.Invoke();
+        
         Vector2 direction = (transform.position - sender.transform.position).normalized;
         rb.AddForce(direction * strength, ForceMode2D.Impulse);
+        
         StartCoroutine(Reset());
     }
 
     private IEnumerator Reset()
     {
         yield return new WaitForSeconds(delay);
+        
         rb.velocity = Vector2.zero;
         OnDone?.Invoke();
     }
