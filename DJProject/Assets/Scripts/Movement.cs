@@ -72,14 +72,15 @@ public class Movement : MonoBehaviour
                 transform.position += (Vector3)inputVector * moveSpeed * Time.deltaTime;
             }
         }
-        
+
     }
 
     private IEnumerator Dashing()
     {
+        UI.ActivateDashCooldown();
         canDash = false;
         isDashing = true;
-        
+
         if (Input.GetKey(KeyCode.W))
         {
             rb.velocity = new Vector2(transform.localScale.x, transform.localScale.y) * dashingPower;
@@ -94,19 +95,21 @@ public class Movement : MonoBehaviour
         audioManager.PlaySFX(audioManager.dash);
 
 
-        spriteRenderer.color = flashColor;  
+        spriteRenderer.color = flashColor;
         yield return new WaitForSeconds(dashTime);
         rb.velocity = new Vector2(0, 0);
         spriteRenderer.color = Color.white;
-        
+
         isDashing = false;
-        
+
         yield return new WaitForSeconds(dashingCooldown);
+        UI.EndDashCooldown();
         canDash = true;
     }
 
 
-    public void CanMove() {
+    public void CanMove()
+    {
         move = !move;
     }
 }
