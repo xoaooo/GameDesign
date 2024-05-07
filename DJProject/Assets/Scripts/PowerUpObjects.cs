@@ -11,6 +11,7 @@ public class PowerUpObjects : MonoBehaviour
         Health,
     }
     public PowerUpTypes type;
+    private const float healthRestoreAmount = 10f;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -19,7 +20,6 @@ public class PowerUpObjects : MonoBehaviour
             Destroy(gameObject);
             if (type == PowerUpTypes.Godmode)
             {
-                //player.addGodmodeCharge()
                 GodMode player = collision.gameObject.GetComponent<GodMode>();
                 player.AddGodModeCharge();
             }
@@ -27,7 +27,11 @@ public class PowerUpObjects : MonoBehaviour
             {
                 DropBone player = collision.gameObject.GetComponent<DropBone>();
                 player.AddMeatCharge();
-                //player.addMeatCharge()
+            }
+            else if (type == PowerUpTypes.Health)
+            {
+                CharacterHealth player = collision.gameObject.GetComponent<CharacterHealth>();
+                player.RestoreHealth(healthRestoreAmount);
             }
         }
     }
