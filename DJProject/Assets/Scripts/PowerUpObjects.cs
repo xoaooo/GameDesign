@@ -17,9 +17,18 @@ public class PowerUpObjects : MonoBehaviour
         {
             Destroy(gameObject);
             if (type == PowerUpTypes.Godmode)
-                ;//player.addGodmodeCharge()
+            {
+                //player.addGodmodeCharge()
+                GodMode player = collision.gameObject.GetComponent<GodMode>();
+                player.AddGodModeCharge();
+            }
             else if (type == PowerUpTypes.Meat)
-                ;//player.addMeatCharge()
+            {
+                DropBone player = collision.gameObject.GetComponent<DropBone>();
+                player.AddMeatCharge();
+                //player.addMeatCharge()
+            }
+                
             //audioManager.PlaySFX(audioManager.coin);
         }
     }
