@@ -13740,6 +13740,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 494826476}
     m_Modifications:
+    - target: {fileID: 149657950427041017, guid: cefc4b108b91d1b4085474d5c96dd89d, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 164714180177808489, guid: cefc4b108b91d1b4085474d5c96dd89d, type: 3}
       propertyPath: m_Name
       value: coinAmount
@@ -13756,6 +13760,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: CoinAmount
       objectReference: {fileID: 0}
+    - target: {fileID: 826053124927734321, guid: cefc4b108b91d1b4085474d5c96dd89d, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1032169419963563392, guid: cefc4b108b91d1b4085474d5c96dd89d, type: 3}
       propertyPath: m_Layer
       value: 5
@@ -13771,6 +13779,14 @@ PrefabInstance:
     - target: {fileID: 2194799736288419299, guid: cefc4b108b91d1b4085474d5c96dd89d, type: 3}
       propertyPath: m_Layer
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2499242975952421258, guid: cefc4b108b91d1b4085474d5c96dd89d, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2499242975952421258, guid: cefc4b108b91d1b4085474d5c96dd89d, type: 3}
+      propertyPath: m_TagString
+      value: IconDash
       objectReference: {fileID: 0}
     - target: {fileID: 3092935590056068630, guid: cefc4b108b91d1b4085474d5c96dd89d, type: 3}
       propertyPath: m_Pivot.x
@@ -13860,6 +13876,18 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 3155356284088733506, guid: cefc4b108b91d1b4085474d5c96dd89d, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3155356284088733506, guid: cefc4b108b91d1b4085474d5c96dd89d, type: 3}
+      propertyPath: m_TagString
+      value: IconStar
+      objectReference: {fileID: 0}
+    - target: {fileID: 5225861048557356619, guid: cefc4b108b91d1b4085474d5c96dd89d, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5261895496844864907, guid: cefc4b108b91d1b4085474d5c96dd89d, type: 3}
       propertyPath: m_Layer
       value: 5
@@ -13891,6 +13919,14 @@ PrefabInstance:
     - target: {fileID: 6816461892744997747, guid: cefc4b108b91d1b4085474d5c96dd89d, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7015585819342423536, guid: cefc4b108b91d1b4085474d5c96dd89d, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7015585819342423536, guid: cefc4b108b91d1b4085474d5c96dd89d, type: 3}
+      propertyPath: m_TagString
+      value: IconMeat
       objectReference: {fileID: 0}
     - target: {fileID: 7323826430647930680, guid: cefc4b108b91d1b4085474d5c96dd89d, type: 3}
       propertyPath: m_Layer
