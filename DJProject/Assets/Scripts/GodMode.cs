@@ -42,8 +42,8 @@ public class GodMode : MonoBehaviour
         hasGodMode = true;
         animator.SetBool("hasGodmode", hasGodMode);
         yield return new WaitForSeconds(godModeTimer);
-        animator.SetBool("hasGodmode", hasGodMode);
         hasGodMode = false;
+        animator.SetBool("hasGodmode", hasGodMode);
         
         yield return new WaitForSeconds(godModeCooldown);
         
