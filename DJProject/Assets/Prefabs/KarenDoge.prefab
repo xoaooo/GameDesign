@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1990988131325541034}
   - component: {fileID: 6489837801826526182}
   - component: {fileID: 6977125471169171874}
+  - component: {fileID: -5018216090209676292}
   m_Layer: 6
   m_Name: KarenDoge
   m_TagString: Enemy
@@ -177,3 +178,24 @@ MonoBehaviour:
   coin: {fileID: 5693812885232298421, guid: 379c78f5fd61fe04b91ccd9c4d306306, type: 3}
   hasGodMode: 0
   coinAmount: {fileID: 0}
+--- !u!95 &-5018216090209676292
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5071461800937916800}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0b051c2e665d46d40b73abba6040b337, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
