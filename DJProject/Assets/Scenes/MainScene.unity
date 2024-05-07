@@ -13760,6 +13760,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: CoinAmount
       objectReference: {fileID: 0}
+    - target: {fileID: 365980259566127661, guid: cefc4b108b91d1b4085474d5c96dd89d, type: 3}
+      propertyPath: m_LayoutPriority
+      value: 999
+      objectReference: {fileID: 0}
     - target: {fileID: 826053124927734321, guid: cefc4b108b91d1b4085474d5c96dd89d, type: 3}
       propertyPath: m_Color.a
       value: 1
@@ -13767,6 +13771,14 @@ PrefabInstance:
     - target: {fileID: 1032169419963563392, guid: cefc4b108b91d1b4085474d5c96dd89d, type: 3}
       propertyPath: m_Layer
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1375918520414469732, guid: cefc4b108b91d1b4085474d5c96dd89d, type: 3}
+      propertyPath: m_LayoutPriority
+      value: 999
+      objectReference: {fileID: 0}
+    - target: {fileID: 1543945213501302852, guid: cefc4b108b91d1b4085474d5c96dd89d, type: 3}
+      propertyPath: m_LayoutPriority
+      value: 999
       objectReference: {fileID: 0}
     - target: {fileID: 1562974972505454604, guid: cefc4b108b91d1b4085474d5c96dd89d, type: 3}
       propertyPath: m_Layer
@@ -13787,6 +13799,10 @@ PrefabInstance:
     - target: {fileID: 2499242975952421258, guid: cefc4b108b91d1b4085474d5c96dd89d, type: 3}
       propertyPath: m_TagString
       value: IconDash
+      objectReference: {fileID: 0}
+    - target: {fileID: 2624838931134526706, guid: cefc4b108b91d1b4085474d5c96dd89d, type: 3}
+      propertyPath: m_LayoutPriority
+      value: 999
       objectReference: {fileID: 0}
     - target: {fileID: 3092935590056068630, guid: cefc4b108b91d1b4085474d5c96dd89d, type: 3}
       propertyPath: m_Pivot.x
@@ -13884,6 +13900,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: IconStar
       objectReference: {fileID: 0}
+    - target: {fileID: 4981142172316842664, guid: cefc4b108b91d1b4085474d5c96dd89d, type: 3}
+      propertyPath: m_LayoutPriority
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5126577349115595494, guid: cefc4b108b91d1b4085474d5c96dd89d, type: 3}
+      propertyPath: m_LayoutPriority
+      value: 999
+      objectReference: {fileID: 0}
     - target: {fileID: 5225861048557356619, guid: cefc4b108b91d1b4085474d5c96dd89d, type: 3}
       propertyPath: m_Color.a
       value: 1
@@ -13912,6 +13936,30 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5540627750856669218, guid: cefc4b108b91d1b4085474d5c96dd89d, type: 3}
+      propertyPath: m_LayoutPriority
+      value: 999
+      objectReference: {fileID: 0}
+    - target: {fileID: 5830886659097098782, guid: cefc4b108b91d1b4085474d5c96dd89d, type: 3}
+      propertyPath: m_LayoutPriority
+      value: 999
+      objectReference: {fileID: 0}
+    - target: {fileID: 6072563948892061066, guid: cefc4b108b91d1b4085474d5c96dd89d, type: 3}
+      propertyPath: m_LayoutPriority
+      value: 999
+      objectReference: {fileID: 0}
+    - target: {fileID: 6285074452213204214, guid: cefc4b108b91d1b4085474d5c96dd89d, type: 3}
+      propertyPath: m_LayoutPriority
+      value: 999
+      objectReference: {fileID: 0}
+    - target: {fileID: 6453222214113490134, guid: cefc4b108b91d1b4085474d5c96dd89d, type: 3}
+      propertyPath: m_LayoutPriority
+      value: 999
+      objectReference: {fileID: 0}
+    - target: {fileID: 6511895118679375651, guid: cefc4b108b91d1b4085474d5c96dd89d, type: 3}
+      propertyPath: m_LayoutPriority
+      value: 999
+      objectReference: {fileID: 0}
     - target: {fileID: 6816461892744997747, guid: cefc4b108b91d1b4085474d5c96dd89d, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
@@ -13936,6 +13984,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 7667906343749310996, guid: cefc4b108b91d1b4085474d5c96dd89d, type: 3}
+      propertyPath: m_LayoutPriority
+      value: 999
+      objectReference: {fileID: 0}
     - target: {fileID: 7811560950213956954, guid: cefc4b108b91d1b4085474d5c96dd89d, type: 3}
       propertyPath: m_text
       value: "0\t"
@@ -13943,6 +13995,10 @@ PrefabInstance:
     - target: {fileID: 8020590492767832105, guid: cefc4b108b91d1b4085474d5c96dd89d, type: 3}
       propertyPath: m_Layer
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8066259084670727525, guid: cefc4b108b91d1b4085474d5c96dd89d, type: 3}
+      propertyPath: m_LayoutPriority
+      value: 999
       objectReference: {fileID: 0}
     - target: {fileID: 8068680703471180656, guid: cefc4b108b91d1b4085474d5c96dd89d, type: 3}
       propertyPath: m_Layer
@@ -21455,7 +21511,7 @@ MonoBehaviour:
   m_PreferredHeight: 56
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
-  m_LayoutPriority: 1
+  m_LayoutPriority: 999
 --- !u!1001 &1777123994
 PrefabInstance:
   m_ObjectHideFlags: 0
