@@ -7,10 +7,8 @@ public class Target : MonoBehaviour
     public float health = 50f;
     public float damage;
     public float speed;
-    public GameObject coin;
     private GameObject player, meat;
     public bool hasGodMode;
-    public TMP_Text coinAmount;
     private bool canActivate;
     private AudioManager audioManager;
     private bool isEating;
@@ -24,11 +22,6 @@ public class Target : MonoBehaviour
     void Start()
     {
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
-        
-        GameObject textObject = GameObject.FindWithTag("CoinAmount");
-        coinAmount = textObject.GetComponent<TMP_Text>();
-        coinAmount.text = CoinBehaviour.coins.ToString();
-        
         player = GameObject.FindWithTag("Player");
         Physics2D.IgnoreLayerCollision(6, 7);
     }
@@ -69,12 +62,9 @@ public class Target : MonoBehaviour
     {
         if (hasGodMode && collision.gameObject.CompareTag("Player"))
         {
-            
+            UI.AddCoin();
             Destroy(gameObject);
             audioManager.PlaySFX(audioManager.coin);
-            CoinBehaviour.coins += 10;
-
-            coinAmount.text = CoinBehaviour.coins.ToString();
         }
     }
 
