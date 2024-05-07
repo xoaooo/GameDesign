@@ -24,11 +24,13 @@ public class GodMode : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
+                UI.ActivateStarCooldown();
                 audioManager.PlaySFX(audioManager.godMode);
                 StartCoroutine(GodModeTimer());
             }
         }
-        else if (!hasGodMode && !canActivate && Input.GetKeyDown(KeyCode.Mouse0)) {
+        else if (!hasGodMode && !canActivate && Input.GetKeyDown(KeyCode.Mouse0))
+        {
 
             audioManager.PlaySFX(audioManager.nope);
         }
@@ -40,16 +42,17 @@ public class GodMode : MonoBehaviour
     IEnumerator GodModeTimer()
     {
         canActivate = false;
-        
+
         hasGodMode = true;
         animator.SetBool("hasGodmode", hasGodMode);
         yield return new WaitForSeconds(godModeTimer);
         hasGodMode = false;
         animator.SetBool("hasGodmode", hasGodMode);
-        
+
         yield return new WaitForSeconds(godModeCooldown);
-        
+
         canActivate = true;
+        UI.EndStarCooldown();
     }
 
     public void AddGodModeCharge()
