@@ -5,6 +5,7 @@ using UnityEngine;
 public class DropBone : MonoBehaviour
 {
     [SerializeField] private GameObject bone;
+    public int meatCharges;
 
     AudioManager audioManager;
     private void Awake()
@@ -16,12 +17,17 @@ public class DropBone : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire2")) 
         {
-            
-            Instantiate(bone, transform.position, transform.rotation);
+            GameObject spawner = gameObject.transform.GetChild(1).gameObject;
+            spawner.GetComponent<SpawnFood>().SpawnFoodHere();
+            //Instantiate(bone, transform.position, transform.rotation);
             audioManager.PlaySFX(audioManager.meat);
             
 
         }
     }
    
+    public void AddMeatCharge()
+    {
+        meatCharges++;
+    }
 }

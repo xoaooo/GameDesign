@@ -120,7 +120,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.059308767}
+  m_Offset: {x: 0.043013573, y: 0.2313571}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -131,7 +131,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 7.28, y: 8.682901}
+  m_Size: {x: 7.10795, y: 8.166754}
   m_EdgeRadius: 0
 --- !u!50 &2085632027366646387
 Rigidbody2D:
@@ -175,9 +175,7 @@ MonoBehaviour:
   health: 200
   damage: 50
   speed: 2
-  coin: {fileID: 5693812885232298421, guid: 379c78f5fd61fe04b91ccd9c4d306306, type: 3}
   hasGodMode: 0
-  coinAmount: {fileID: 0}
 --- !u!95 &-7894291606407905478
 Animator:
   serializedVersion: 5

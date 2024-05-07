@@ -551,6 +551,7 @@ GameObject:
   m_Component:
   - component: {fileID: 19076617}
   - component: {fileID: 19076618}
+  - component: {fileID: 19076619}
   m_Layer: 0
   m_Name: ObjectSpawner
   m_TagString: Untagged
@@ -580,12 +581,26 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 19076616}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 90b64322afcf79145921492f2c9a92ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bone: {fileID: 7354164933708615109, guid: 9b58bd5437794614e814c6c799702ea0, type: 3}
+  meatCharges: 0
+--- !u!114 &19076619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 19076616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00668340d1fcbb3489719b3692cd8156, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  food: {fileID: 7354164933708615109, guid: 9b58bd5437794614e814c6c799702ea0, type: 3}
 --- !u!4 &20004717 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7196101835270695838, guid: 957001356de41f64bb3d59f393655b34, type: 3}
@@ -1804,6 +1819,7 @@ MonoBehaviour:
   speed: 0
   godModeTimer: 5
   godModeCooldown: 5
+  godModeCharges: 3
 --- !u!114 &66383500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1828,6 +1844,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 591c4de0dc868c84997c97481ae9fcaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &66383504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 66383472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90b64322afcf79145921492f2c9a92ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bone: {fileID: 0}
+  meatCharges: 3
 --- !u!4 &69774327 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7196101835270695838, guid: 957001356de41f64bb3d59f393655b34, type: 3}
@@ -3923,6 +3953,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 196096, guid: 816ec972959427243845c4776a0a7dea, type: 3}
       insertIndex: -1
       addedObject: {fileID: 66383501}
+    - targetCorrespondingSourceObject: {fileID: 196096, guid: 816ec972959427243845c4776a0a7dea, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 66383504}
   m_SourcePrefab: {fileID: 100100000, guid: 816ec972959427243845c4776a0a7dea, type: 3}
 --- !u!1001 &315027386
 PrefabInstance:

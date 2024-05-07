@@ -5,6 +5,8 @@ public class GodMode : MonoBehaviour
 {
     public bool hasGodMode = false, canActivate = true;
     public float speed, godModeTimer = 5f, godModeCooldown = 5f;
+    public int godModeCharges;
+
     private Animator animator;
 
     AudioManager audioManager;
@@ -51,5 +53,10 @@ public class GodMode : MonoBehaviour
 
         canActivate = true;
         UI.EndStarCooldown();
+    }
+
+    public void AddGodModeCharge()
+    {
+        godModeCharges++;
     }
 }
