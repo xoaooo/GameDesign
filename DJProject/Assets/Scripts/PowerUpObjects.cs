@@ -8,6 +8,7 @@ public class PowerUpObjects : MonoBehaviour
     {
         Godmode,
         Meat,
+        Health,
     }
     public PowerUpTypes type;
 
@@ -28,8 +29,6 @@ public class PowerUpObjects : MonoBehaviour
                 player.AddMeatCharge();
                 //player.addMeatCharge()
             }
-                
-            //audioManager.PlaySFX(audioManager.coin);
         }
     }
 }
