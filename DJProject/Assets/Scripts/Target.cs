@@ -13,7 +13,14 @@ public class Target : MonoBehaviour
     public TMP_Text coinAmount;
     private bool canActivate;
     private AudioManager audioManager;
-    
+    private bool isEating;
+    private Animator animator;
+
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
+
     void Start()
     {
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
@@ -45,10 +52,17 @@ public class Target : MonoBehaviour
             if (meat != null)
             {
                 transform.position = Vector2.MoveTowards(transform.position, meat.transform.position, speed * Time.deltaTime);
+                isEating = Vector2.Distance(transform.position, meat.transform.position) <= 2.5;
             }
-            else if (player != null)
+            else
+            {
+                isEating = false;
+            }
+            if (player != null)
                 transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
         }
+
+        animator.SetBool("isEating", isEating);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
