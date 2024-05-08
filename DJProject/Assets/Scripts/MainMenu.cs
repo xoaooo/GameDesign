@@ -16,7 +16,7 @@ public class StartGame : MonoBehaviour
     // Start is called before the first frame update
     public void StartGam()
     {
-        SceneManager.LoadScene("MainScene", LoadSceneMode.Single);
+        SceneManager.LoadScene("Introduction", LoadSceneMode.Single);
 
     }
 

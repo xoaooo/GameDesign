@@ -361,10 +361,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Fuming with frustration, the owner swiftly captured Whiskers and locked
-    him in a sturdy crate. Determined to teach the cat a lesson, he decided on a
-    harsh punishment: to abandon Whiskers deep within the heart of the forest, far
-    from the comforts of home.\r"
+  m_text: "Moved by pity, the traveler scooped Whiskers into his arms, offering him
+    shelter and care. With each passing day, Whiskers found solace in the traveler's
+    company, his once-broken spirit slowly got stronger by the warmth of kindness.\r"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bafba192cc9363648a873b74c9871581, type: 2}
   m_sharedMaterial: {fileID: 5588143327512853992, guid: bafba192cc9363648a873b74c9871581, type: 2}
@@ -653,12 +652,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'In a tranquil village bordered by a dense forest, there lived a cat named
-    Whiskers. With a coat as black as the midnight sky and eyes that gleamed like
-    emeralds, Whiskers was renowned for his playful antics that often led to chaos
-    in his owner''s household.
-
-'
+  m_text: "With each passing moment, Whiskers encountered new challenges. He dodged
+    ferocious dogs and navigated treacherous terrain, all while battling hunger and
+    exhaustion. As the days turned into weeks, Whiskers felt his spirit wane, his
+    resolve weakening with each passing day.\r"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bafba192cc9363648a873b74c9871581, type: 2}
   m_sharedMaterial: {fileID: 5588143327512853992, guid: bafba192cc9363648a873b74c9871581, type: 2}
@@ -814,10 +811,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'One sunny afternoon, as the town bustled with activity, Whiskers found
-    himself up to his usual mischief. In a moment of recklessness, he knocked over
-    his owner''s favourite beer mug, sending it crashing to the ground. Startled
-    by the noise, his owner rushed into the room, his face contorted with anger.
+  m_text: 'One fateful night, as Whiskers huddled beneath the shelter of a gnarled
+    tree, a glimmer of hope emerged, as a lost traveler stumbled upon the weary cat.
+    Upon seeing such a lonely creature, his heart filled with compassion.
 
 '
   m_isRightToLeft: 0
@@ -907,7 +903,7 @@ GameObject:
   - component: {fileID: 1309114705}
   m_Layer: 0
   m_Name: Story
-  m_TagString: Untagged
+  m_TagString: Ending
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1420,10 +1416,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "As the sun dipped below the horizon, casting an orange glow over the landscape,
-    Whiskers found himself alone in the wilderness. The once-familiar sights and
-    sounds of the village were replaced by the eerie silence of the forest and the
-    several dangers laying deep in the woods\u2026\r"
+  m_text: Together, they embarked on a new journey, forging an unbreakable bond.
+    And as they ventured forth into the unknown, Whiskers realized that sometimes,
+    one must get lost to realize where he truly belongs.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bafba192cc9363648a873b74c9871581, type: 2}
   m_sharedMaterial: {fileID: 5588143327512853992, guid: bafba192cc9363648a873b74c9871581, type: 2}
