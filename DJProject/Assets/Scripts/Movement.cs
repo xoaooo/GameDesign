@@ -11,6 +11,7 @@ public class Movement : MonoBehaviour
     private float dashTime = 0.2f;
     private float dashingCooldown = 3f;
     [SerializeField] private Rigidbody2D rb;
+    PlayerStatistics statistics;
 
     public Color flashColor;
     private SpriteRenderer spriteRenderer;
@@ -23,10 +24,7 @@ public class Movement : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
-    }
-
-    private void Start()
-    {
+        statistics = FindObjectOfType<PlayerStatistics>();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
@@ -39,6 +37,7 @@ public class Movement : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
             {
+                statistics.abilityCount++;
                 StartCoroutine(Dashing());
             }
 

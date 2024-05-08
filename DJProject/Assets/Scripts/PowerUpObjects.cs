@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class PowerUpObjects : MonoBehaviour
 {
+    private PlayerStatistics statistics;
+
+    void Start()
+    {
+        statistics = FindObjectOfType<PlayerStatistics>();
+    }
     public enum PowerUpTypes
     {
         Godmode,
@@ -33,6 +39,9 @@ public class PowerUpObjects : MonoBehaviour
                 CharacterHealth player = collision.gameObject.GetComponent<CharacterHealth>();
                 player.RestoreHealth(healthRestoreAmount);
             }
+
+            statistics.powerUpCount++;
+
         }
     }
 }
