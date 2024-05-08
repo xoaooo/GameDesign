@@ -108,4 +108,10 @@ public class CharacterHealth : MonoBehaviour
     {
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
+
+    public void RestoreHealth(float amount)
+    {
+        health = Mathf.Clamp(health + amount, 0f, 100f);
+        healthBar.fillAmount = health / 100f;
+    }
 }

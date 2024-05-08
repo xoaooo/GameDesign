@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5731002885152244964}
   - component: {fileID: -2866194242212244987}
   - component: {fileID: 1638511082928099166}
+  - component: {fileID: 8367361990273354439}
   m_Layer: 6
   m_Name: BuffWalter
   m_TagString: Enemy
@@ -146,7 +147,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.13088405, y: 0.5890119}
+  m_Offset: {x: -0.15761864, y: 0.5966505}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -157,7 +158,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.3569133, y: 3.237309}
+  m_Size: {x: 2.3034441, y: 2.7790015}
   m_EdgeRadius: 0
 --- !u!114 &1638511082928099166
 MonoBehaviour:
@@ -174,6 +175,25 @@ MonoBehaviour:
   health: 100
   damage: 30
   speed: 3
-  coin: {fileID: 5693812885232298421, guid: 379c78f5fd61fe04b91ccd9c4d306306, type: 3}
   hasGodMode: 0
-  coinAmount: {fileID: 0}
+--- !u!95 &8367361990273354439
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2823225923031898517}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f3e408e806351aa49aebe323e6f0e0d6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

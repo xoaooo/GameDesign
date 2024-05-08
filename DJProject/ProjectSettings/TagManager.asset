@@ -13,6 +13,9 @@ TagManager:
   - Shop
   - Audio
   - WaveSpawner
+  - IconDash
+  - IconStar
+  - IconMeat
   layers:
   - Default
   - TransparentFX

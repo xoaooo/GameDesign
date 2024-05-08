@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -6189217201357553977}
   - component: {fileID: 4217353980430392526}
   - component: {fileID: 8872571966436866292}
+  - component: {fileID: 8714884143616637588}
   m_Layer: 6
   m_Name: RageDoge
   m_TagString: Enemy
@@ -146,7 +147,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.20437467, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -157,7 +158,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 11.25, y: 11.25}
+  m_Size: {x: 7.051014, y: 11.25}
   m_EdgeRadius: 0
 --- !u!114 &8872571966436866292
 MonoBehaviour:
@@ -174,6 +175,25 @@ MonoBehaviour:
   health: 30
   damage: 10
   speed: 5
-  coin: {fileID: 5693812885232298421, guid: 379c78f5fd61fe04b91ccd9c4d306306, type: 3}
   hasGodMode: 0
-  coinAmount: {fileID: 0}
+--- !u!95 &8714884143616637588
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4618884684439322387}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e2b9640de8a89f24da506862a425e0ce, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
