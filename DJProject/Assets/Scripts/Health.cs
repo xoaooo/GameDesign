@@ -60,7 +60,7 @@ public class CharacterHealth : MonoBehaviour
 
                 if (health <= 0)
                 {
-                    StartCoroutine(GameOver());
+                    GameOver();
                 }
             }
         }
@@ -74,7 +74,7 @@ public class CharacterHealth : MonoBehaviour
 
         if (health <= 0)
         {
-            StartCoroutine(GameOver());
+           GameOver();
         }
     }
 
@@ -89,7 +89,7 @@ public class CharacterHealth : MonoBehaviour
         isInvulnerable = false;
     }
 
-    IEnumerator GameOver()
+    public void GameOver()
     {
         Movement movement = GetComponent<Movement>();
         if (movement != null)
@@ -98,7 +98,6 @@ public class CharacterHealth : MonoBehaviour
         }
         audioManager.PlayMusic(audioManager.death);
         
-        yield return new WaitForSeconds(audioManager.death.length);
         Destroy(gameObject);
         
         SceneManager.LoadScene("Game Over", LoadSceneMode.Single);
@@ -107,5 +106,11 @@ public class CharacterHealth : MonoBehaviour
     private void Awake()
     {
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
+
+    public void RestoreHealth(float amount)
+    {
+        health = Mathf.Clamp(health + amount, 0f, 100f);
+        healthBar.fillAmount = health / 100f;
     }
 }

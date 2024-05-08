@@ -6,6 +6,7 @@ public class GodMode : MonoBehaviour
     public bool hasGodMode = false, canActivate = true;
     public float speed, godModeTimer = 5f, godModeCooldown = 5f;
     public int godModeCharges;
+    PlayerStatistics statistics;
 
     private Animator animator;
 
@@ -19,6 +20,7 @@ public class GodMode : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        statistics = FindObjectOfType<PlayerStatistics>();
 
     }
 
@@ -30,6 +32,7 @@ public class GodMode : MonoBehaviour
             {
                 if (godModeCharges > 0)
                 {
+                    statistics.abilityCount++;
                     godModeCharges--;
                     UI.updateGod(godModeCharges);
                     UI.ActivateStarCooldown();
@@ -40,7 +43,6 @@ public class GodMode : MonoBehaviour
         }
         else if (!hasGodMode && !canActivate && Input.GetKeyDown(KeyCode.Mouse0))
         {
-
             audioManager.PlaySFX(audioManager.nope);
         }
 

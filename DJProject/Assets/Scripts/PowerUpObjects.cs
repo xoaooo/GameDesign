@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class PowerUpObjects : MonoBehaviour
 {
+    private PlayerStatistics statistics;
+
+    void Start()
+    {
+        statistics = FindObjectOfType<PlayerStatistics>();
+    }
     public enum PowerUpTypes
     {
         Godmode,
@@ -11,6 +17,7 @@ public class PowerUpObjects : MonoBehaviour
         Health,
     }
     public PowerUpTypes type;
+    private const float healthRestoreAmount = 10f;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -19,16 +26,22 @@ public class PowerUpObjects : MonoBehaviour
             Destroy(gameObject);
             if (type == PowerUpTypes.Godmode)
             {
-                //player.addGodmodeCharge()
                 GodMode player = collision.gameObject.GetComponent<GodMode>();
                 player.AddGodModeCharge();
             }
             else if (type == PowerUpTypes.Meat)
             {
-                DropBone player = collision.gameObject.GetComponent<DropBone>();
+                DropFood player = collision.gameObject.GetComponent<DropFood>();
                 player.AddMeatCharge();
-                //player.addMeatCharge()
             }
+            else if (type == PowerUpTypes.Health)
+            {
+                CharacterHealth player = collision.gameObject.GetComponent<CharacterHealth>();
+                player.RestoreHealth(healthRestoreAmount);
+            }
+
+            statistics.powerUpCount++;
+
         }
     }
 }

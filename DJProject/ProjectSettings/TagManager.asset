@@ -21,6 +21,8 @@ TagManager:
   - UsesGod
   - BotaoWave
   - WaveCleared
+  - Ending
+  - PowerUp
   layers:
   - Default
   - TransparentFX
