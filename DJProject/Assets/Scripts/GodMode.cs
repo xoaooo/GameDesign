@@ -11,6 +11,10 @@ public class GodMode : MonoBehaviour
 
     AudioManager audioManager;
 
+    private void Start()
+    {
+        UI.updateGod(godModeCharges);
+    }
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -24,9 +28,14 @@ public class GodMode : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
-                UI.ActivateStarCooldown();
-                audioManager.PlaySFX(audioManager.godMode);
-                StartCoroutine(GodModeTimer());
+                if (godModeCharges > 0)
+                {
+                    godModeCharges--;
+                    UI.updateGod(godModeCharges);
+                    UI.ActivateStarCooldown();
+                    audioManager.PlaySFX(audioManager.godMode);
+                    StartCoroutine(GodModeTimer());
+                }
             }
         }
         else if (!hasGodMode && !canActivate && Input.GetKeyDown(KeyCode.Mouse0))
@@ -58,5 +67,6 @@ public class GodMode : MonoBehaviour
     public void AddGodModeCharge()
     {
         godModeCharges++;
+        UI.updateGod(godModeCharges);
     }
 }

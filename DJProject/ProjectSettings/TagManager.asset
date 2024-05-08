@@ -16,6 +16,11 @@ TagManager:
   - IconDash
   - IconStar
   - IconMeat
+  - UsesMeat
+  - UsesDash
+  - UsesGod
+  - BotaoWave
+  - WaveCleared
   layers:
   - Default
   - TransparentFX

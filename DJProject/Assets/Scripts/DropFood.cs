@@ -8,6 +8,11 @@ public class DropBone : MonoBehaviour
     public int meatCharges;
 
     AudioManager audioManager;
+
+    private void Start()
+    {
+        UI.updateMeat(meatCharges);
+    }
     private void Awake()
     {
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
@@ -15,19 +20,24 @@ public class DropBone : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Fire2")) 
+        if (Input.GetButtonDown("Fire2"))
         {
-            GameObject spawner = gameObject.transform.GetChild(1).gameObject;
-            spawner.GetComponent<SpawnFood>().SpawnFoodHere();
-            //Instantiate(bone, transform.position, transform.rotation);
-            audioManager.PlaySFX(audioManager.meat);
-            
+            if (meatCharges > 0)
+            {
+                meatCharges--;
+                UI.updateMeat(meatCharges);
+                GameObject spawner = gameObject.transform.GetChild(1).gameObject;
+                spawner.GetComponent<SpawnFood>().SpawnFoodHere();
+                //Instantiate(bone, transform.position, transform.rotation);
+                audioManager.PlaySFX(audioManager.meat);
+            }
 
         }
     }
-   
+
     public void AddMeatCharge()
     {
         meatCharges++;
+        UI.updateMeat(meatCharges);
     }
 }

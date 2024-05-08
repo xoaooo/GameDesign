@@ -26,7 +26,7 @@ public class SpawnEnemies : MonoBehaviour
                 }
                 countdown = respawnTime;
             }
-            
+
             waveTime -= Time.deltaTime;
             countdown -= Time.deltaTime;
 
@@ -36,7 +36,7 @@ public class SpawnEnemies : MonoBehaviour
                 /*waveTime += 10f;
                 countdown -= 0.5f;
                 respawnTime -= 0.5f;*/
-                
+                UI.enableWaveCanvas();
                 //start store menu or something
                 //waveStatus = 0 when leaving menu
             }
