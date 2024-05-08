@@ -16,6 +16,8 @@ TagManager:
   - IconDash
   - IconStar
   - IconMeat
+  - Ending
+  - PowerUp
   layers:
   - Default
   - TransparentFX

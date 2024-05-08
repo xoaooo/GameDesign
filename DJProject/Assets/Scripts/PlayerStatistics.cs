@@ -7,6 +7,6 @@ public class PlayerStatistics : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("PowerUp Count: " + abilityCount);
+        gameTime = Time.time;
     }
 }

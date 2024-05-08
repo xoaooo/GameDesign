@@ -31,7 +31,7 @@ public class PowerUpObjects : MonoBehaviour
             }
             else if (type == PowerUpTypes.Meat)
             {
-                DropBone player = collision.gameObject.GetComponent<DropBone>();
+                DropFood player = collision.gameObject.GetComponent<DropFood>();
                 player.AddMeatCharge();
             }
             else if (type == PowerUpTypes.Health)

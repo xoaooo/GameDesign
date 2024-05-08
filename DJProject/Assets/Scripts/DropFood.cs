@@ -1,25 +1,27 @@
 using UnityEngine;
 
-public class DropBone : MonoBehaviour
+public class DropFood : MonoBehaviour
 {
-    [SerializeField] private GameObject bone;
     public int meatCharges;
+    PlayerStatistics statistics;
 
     AudioManager audioManager;
     private void Awake()
     {
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        statistics = FindObjectOfType<PlayerStatistics>();
     }
 
     void Update()
     {
-        if (Input.GetButtonDown("Fire2")) 
+        if (Input.GetButtonDown("Fire2") && meatCharges > 0) 
         {
             GameObject spawner = gameObject.transform.GetChild(1).gameObject;
             spawner.GetComponent<SpawnFood>().SpawnFoodHere();
-            //Instantiate(bone, transform.position, transform.rotation);
             audioManager.PlaySFX(audioManager.meat);
-            
+            meatCharges--;
+            statistics.abilityCount++;
+
 
         }
     }
