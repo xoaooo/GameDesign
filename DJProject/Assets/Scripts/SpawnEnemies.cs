@@ -3,7 +3,7 @@ using UnityEngine;
 public class SpawnEnemies : MonoBehaviour
 {
     public float enemyScale, waveTime, respawnTime, countdown;
-    public int waveNumber = 0;
+    public int waveNumber = 1;
     public int waveStatus = 0; // 0 - Pick enemies; 1- Spawn enemies; 2 - End Wave
     public GameObject[] enemySpawners;
 
@@ -37,8 +37,6 @@ public class SpawnEnemies : MonoBehaviour
                 {
                     Destroy(enemy);
                 }
-
-                Time.timeScale = 0;
                 UI.enableWaveCanvas();
                 //start store menu or something
                 //waveStatus = 0 when leaving menu

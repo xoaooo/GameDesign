@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using JetBrains.Annotations;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -39,7 +36,7 @@ public class UI : MonoBehaviour
         meatUses = textObject.GetComponent<TMP_Text>();
         textObject = GameObject.FindWithTag("UsesGod");
         godUses = textObject.GetComponent<TMP_Text>();
-        wavePanel = GameObject.Find("CanvasWave");
+        wavePanel = GameObject.Find("WaveWinner");
     }
 
     // Update is called once per frame
@@ -88,6 +85,7 @@ public class UI : MonoBehaviour
     public static void enableWaveCanvas()
     {
         wavePanel.SetActive(true);
+        Time.timeScale = 0;
     }
 
     public static void disableWaveCanvas()
