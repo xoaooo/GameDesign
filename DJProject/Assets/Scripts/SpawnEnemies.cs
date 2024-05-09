@@ -3,8 +3,8 @@ using UnityEngine;
 public class SpawnEnemies : MonoBehaviour
 {
     public float enemyScale, waveTime, respawnTime, countdown;
-    public static int waveNumber = 0;
-    private int waveStatus = 0; // 0 - Pick enemies; 1- Spawn enemies; 2 - End Wave
+    public int waveNumber = 0;
+    public int waveStatus = 0; // 0 - Pick enemies; 1- Spawn enemies; 2 - End Wave
     public GameObject[] enemySpawners;
 
     // Update is called once per frame
@@ -12,7 +12,6 @@ public class SpawnEnemies : MonoBehaviour
     {
         if (waveStatus == 0)
         {
-            waveNumber++;
             waveStatus = 1;
         }
 
@@ -33,9 +32,13 @@ public class SpawnEnemies : MonoBehaviour
             if (waveTime <= 0)
             {
                 waveStatus = 2;
-                /*waveTime += 10f;
-                countdown -= 0.5f;
-                respawnTime -= 0.5f;*/
+                var enemies = GameObject.FindGameObjectsWithTag("Enemy");
+                foreach (var enemy in enemies)
+                {
+                    Destroy(enemy);
+                }
+
+                Time.timeScale = 0;
                 UI.enableWaveCanvas();
                 //start store menu or something
                 //waveStatus = 0 when leaving menu

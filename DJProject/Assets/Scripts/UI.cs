@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using JetBrains.Annotations;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UI : MonoBehaviour
@@ -87,5 +88,21 @@ public class UI : MonoBehaviour
     public static void enableWaveCanvas()
     {
         wavePanel.SetActive(true);
+    }
+
+    public static void disableWaveCanvas()
+    {
+        wavePanel.SetActive(false);
+        var waveSpawner = GameObject.FindWithTag("WaveSpawner");
+        waveSpawner.GetComponent<SpawnEnemies>().waveStatus = 0;
+        var waveNumber = waveSpawner.GetComponent<SpawnEnemies>().waveNumber++;
+        Debug.Log(waveNumber);
+        if (waveNumber == 5)
+            SceneManager.LoadScene("Ending");
+        waveSpawner.GetComponent<SpawnEnemies>().waveTime = 30f + waveNumber * 5;
+        waveSpawner.GetComponent<SpawnEnemies>().respawnTime = 10f - waveNumber;
+        waveSpawner.GetComponent<SpawnEnemies>().countdown = 10f - waveNumber;
+        Time.timeScale = 1;
+
     }
 }
