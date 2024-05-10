@@ -80,23 +80,46 @@ public class Movement : MonoBehaviour
         canDash = false;
         isDashing = true;
 
+        Vector2 dashDirection = Vector2.zero;
+
         if (Input.GetKey(KeyCode.W))
         {
-            rb.velocity = new Vector2(transform.localScale.x, transform.localScale.y) * dashingPower;
+            dashDirection += Vector2.up;
         }
-        else if (Input.GetKey(KeyCode.S))
+
+        if (Input.GetKey(KeyCode.S))
         {
-            rb.velocity = new Vector2(transform.localScale.x, -transform.localScale.y) * dashingPower;
+            dashDirection += Vector2.down;
+        }
+
+        if (Input.GetKey(KeyCode.A))
+        {
+            dashDirection += Vector2.left;
+        }
+
+        if (Input.GetKey(KeyCode.D))
+        {
+            dashDirection += Vector2.right;
+        }
+
+        // Normalize the direction to ensure consistent speed in diagonal dashing
+        if (dashDirection != Vector2.zero)
+        {
+            dashDirection.Normalize();
         }
         else
-            rb.velocity = new Vector2(transform.localScale.x, 0) * dashingPower;
+        {
+            // If no directional keys are pressed, default to horizontal dash
+            dashDirection = new Vector2(transform.localScale.x, 0);
+        }
+
+        rb.velocity = dashDirection * dashingPower;
 
         audioManager.PlaySFX(audioManager.dash);
 
-
         spriteRenderer.color = flashColor;
         yield return new WaitForSeconds(dashTime);
-        rb.velocity = new Vector2(0, 0);
+        rb.velocity = Vector2.zero;
         spriteRenderer.color = Color.white;
 
         isDashing = false;
