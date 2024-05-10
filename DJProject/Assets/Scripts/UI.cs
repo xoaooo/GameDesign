@@ -16,6 +16,8 @@ public class UI : MonoBehaviour
     public static GameObject wavePanel;
     public static GameObject waveButton;
 
+    private static Animator animator;
+
     // Start is called before the first frame update
     public static int amount;
     void Start()
@@ -26,6 +28,7 @@ public class UI : MonoBehaviour
         dash = GameObject.FindGameObjectWithTag("IconDash");
         star = GameObject.FindGameObjectWithTag("IconStar");
         wavePanel.SetActive(false);
+        animator = GameObject.FindWithTag("Player").GetComponent<Animator>();
     }
 
     void Awake()
@@ -101,6 +104,7 @@ public class UI : MonoBehaviour
         waveSpawner.GetComponent<SpawnEnemies>().respawnTime = 10f - waveNumber;
         waveSpawner.GetComponent<SpawnEnemies>().countdown = 10f - waveNumber;
         Time.timeScale = 1;
+        animator.SetBool("hasGodmode", false);
 
     }
 }

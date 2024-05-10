@@ -44,15 +44,17 @@ public class Target : MonoBehaviour
             meat = GameObject.FindWithTag("Meat");
             if (meat != null)
             {
+                Debug.Log(speed);
                 transform.position = Vector2.MoveTowards(transform.position, meat.transform.position, speed * Time.deltaTime);
                 isEating = Vector2.Distance(transform.position, meat.transform.position) <= 2.5;
             }
+            else if (player != null)
+                transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
             else
             {
                 isEating = false;
             }
-            if (player != null)
-                transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+            
         }
 
         animator.SetBool("isEating", isEating);

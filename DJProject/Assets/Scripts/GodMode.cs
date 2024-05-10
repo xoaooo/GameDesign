@@ -7,6 +7,7 @@ public class GodMode : MonoBehaviour
     public float speed, godModeTimer = 5f, godModeCooldown = 5f;
     public int godModeCharges;
     PlayerStatistics statistics;
+    private GameObject waveSpawner;
 
     private Animator animator;
 
@@ -21,14 +22,14 @@ public class GodMode : MonoBehaviour
         animator = GetComponent<Animator>();
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         statistics = FindObjectOfType<PlayerStatistics>();
-
+        waveSpawner = GameObject.FindWithTag("WaveSpawner");
     }
 
     void Update()
     {
         if (!hasGodMode && canActivate)
         {
-            if (Input.GetKeyDown(KeyCode.Mouse0))
+            if (Input.GetKeyDown(KeyCode.Mouse0) && waveSpawner.GetComponent<SpawnEnemies>().waveStatus != 2)
             {
                 if (godModeCharges > 0)
                 {
