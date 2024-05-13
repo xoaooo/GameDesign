@@ -39,9 +39,7 @@ public class PowerUpObjects : MonoBehaviour
                 CharacterHealth player = collision.gameObject.GetComponent<CharacterHealth>();
                 player.RestoreHealth(healthRestoreAmount);
             }
-
-            statistics.powerUpCount++;
-
+            statistics.IncrementPickUps();
         }
     }
 }

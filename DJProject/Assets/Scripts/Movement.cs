@@ -37,7 +37,7 @@ public class Movement : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
             {
-                statistics.abilityCount++;
+                statistics.IncrementDash();
                 StartCoroutine(Dashing());
             }
 

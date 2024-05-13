@@ -26,7 +26,7 @@ public class DropFood : MonoBehaviour
             audioManager.PlaySFX(audioManager.meat);
             meatCharges--;
             UI.updateMeat(meatCharges);
-            statistics.abilityCount++;
+            statistics.IncrementMeat();
 
 
         }
