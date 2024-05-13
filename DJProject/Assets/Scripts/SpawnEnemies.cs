@@ -44,4 +44,10 @@ public class SpawnEnemies : MonoBehaviour
         }
 
     }
+
+    public int NextWave()
+    {
+        this.waveNumber++;
+        return this.waveNumber;
+    }
 }
