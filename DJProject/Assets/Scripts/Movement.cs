@@ -18,12 +18,11 @@ public class Movement : MonoBehaviour
 
     private Animator animator;
 
-    AudioManager audioManager;
+    [SerializeField] private AudioClip Dash;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
-        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         statistics = FindObjectOfType<PlayerStatistics>();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
@@ -115,7 +114,8 @@ public class Movement : MonoBehaviour
 
         rb.velocity = dashDirection * dashingPower;
 
-        audioManager.PlaySFX(audioManager.dash);
+        //audioManager.PlaySFX(audioManager.dash);
+        SoundFXManager.instance.PlaySFXClip(Dash, transform, 0.32f);
 
         spriteRenderer.color = flashColor;
         yield return new WaitForSeconds(dashTime);

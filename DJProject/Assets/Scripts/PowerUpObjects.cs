@@ -6,6 +6,8 @@ public class PowerUpObjects : MonoBehaviour
 {
     private PlayerStatistics statistics;
 
+    [SerializeField] private AudioClip[] powerups;
+
     void Start()
     {
         statistics = FindObjectOfType<PlayerStatistics>();
@@ -27,16 +29,19 @@ public class PowerUpObjects : MonoBehaviour
             if (type == PowerUpTypes.Godmode)
             {
                 GodMode player = collision.gameObject.GetComponent<GodMode>();
+                SoundFXManager.instance.PlayRandomSFXClip(powerups, transform, 0.1f);
                 player.AddGodModeCharge();
             }
             else if (type == PowerUpTypes.Meat)
             {
                 DropFood player = collision.gameObject.GetComponent<DropFood>();
+                SoundFXManager.instance.PlayRandomSFXClip(powerups, transform, 0.1f);
                 player.AddMeatCharge();
             }
             else if (type == PowerUpTypes.Health)
             {
                 CharacterHealth player = collision.gameObject.GetComponent<CharacterHealth>();
+                SoundFXManager.instance.PlayRandomSFXClip(powerups, transform, 0.1f);
                 player.RestoreHealth(healthRestoreAmount);
             }
 

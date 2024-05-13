@@ -4,8 +4,8 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class CharacterHealth : MonoBehaviour
 {
-    [SerializeField] AudioSource audioSource, musicSource;
-    [SerializeField] AudioClip hitSound, deathSound;
+    //[SerializeField] AudioSource audioSource, musicSource;
+    //[SerializeField] AudioClip hitSound, deathSound;
 
     public float health = 100f;
     public float invulnerabilityTime = 0.5f; // Time in seconds for invulnerability after taking damage
@@ -20,8 +20,11 @@ public class CharacterHealth : MonoBehaviour
     [SerializeField] private Knockback knockback;
     [SerializeField] private Rigidbody2D rb;
 
+    [SerializeField] private AudioClip[] damage;
+    [SerializeField] private AudioClip death;
 
-    AudioManager audioManager;
+
+    //AudioManager audioManager;
 
     void Start()
     {
@@ -41,8 +44,9 @@ public class CharacterHealth : MonoBehaviour
                     enemy.GetComponent<Rigidbody2D>().freezeRotation = true;
                     
                     TakeDamage(enemy);
-                    
-                    audioManager.PlaySFX(audioManager.damage);
+
+                    //audioManager.PlaySFX(audioManager.damage);
+                    SoundFXManager.instance.PlayRandomSFXClip(damage, transform, 0.2f);
                     knockback.PlayFeedback(collision.gameObject);
                     
                     StartCoroutine(InvulnerabilityTimer());
@@ -53,7 +57,7 @@ public class CharacterHealth : MonoBehaviour
                 health -= 10f;
                 healthBar.fillAmount = health / 100f;
                 
-                audioManager.PlaySFX(audioManager.damage);
+                //audioManager.PlaySFX(audioManager.damage);
                 knockback.PlayFeedback(collision.gameObject);
                 
                 StartCoroutine(InvulnerabilityTimer());
@@ -96,17 +100,13 @@ public class CharacterHealth : MonoBehaviour
         {
             movement.CanMove();
         }
-        audioManager.PlayMusic(audioManager.death);
+        //audioManager.PlayMusic(audioManager.death);
         
         Destroy(gameObject);
         
         SceneManager.LoadScene("Game Over", LoadSceneMode.Single);
     }
 
-    private void Awake()
-    {
-        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
-    }
 
     public void RestoreHealth(float amount)
     {

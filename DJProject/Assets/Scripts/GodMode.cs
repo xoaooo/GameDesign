@@ -11,7 +11,7 @@ public class GodMode : MonoBehaviour
 
     private Animator animator;
 
-    AudioManager audioManager;
+    [SerializeField] private AudioClip godMode;
 
     private void Start()
     {
@@ -20,7 +20,7 @@ public class GodMode : MonoBehaviour
     private void Awake()
     {
         animator = GetComponent<Animator>();
-        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        //audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         statistics = FindObjectOfType<PlayerStatistics>();
         waveSpawner = GameObject.FindWithTag("WaveSpawner");
     }
@@ -37,14 +37,15 @@ public class GodMode : MonoBehaviour
                     godModeCharges--;
                     UI.updateGod(godModeCharges);
                     UI.ActivateStarCooldown();
-                    audioManager.PlaySFX(audioManager.godMode);
+                    //audioManager.PlaySFX(audioManager.godMode);
+                    SoundFXManager.instance.PlaySFXClip(godMode, transform, 0.1f);
                     StartCoroutine(GodModeTimer());
                 }
             }
         }
         else if (!hasGodMode && !canActivate && Input.GetKeyDown(KeyCode.Mouse0))
         {
-            audioManager.PlaySFX(audioManager.nope);
+            //audioManager.PlaySFX(audioManager.nope);
         }
 
     }

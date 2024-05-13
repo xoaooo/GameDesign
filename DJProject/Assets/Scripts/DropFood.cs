@@ -5,7 +5,7 @@ public class DropFood : MonoBehaviour
     public int meatCharges;
     PlayerStatistics statistics;
 
-    AudioManager audioManager;
+    [SerializeField] private AudioClip food;
 
     private void Start()
     {
@@ -13,7 +13,6 @@ public class DropFood : MonoBehaviour
     }
     private void Awake()
     {
-        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         statistics = FindObjectOfType<PlayerStatistics>();
     }
 
@@ -23,7 +22,9 @@ public class DropFood : MonoBehaviour
         {
             GameObject spawner = gameObject.transform.GetChild(1).gameObject;
             spawner.GetComponent<SpawnFood>().SpawnFoodHere();
-            audioManager.PlaySFX(audioManager.meat);
+
+            SoundFXManager.instance.PlaySFXClip(food, transform, 0.3f);
+
             meatCharges--;
             UI.updateMeat(meatCharges);
             statistics.abilityCount++;

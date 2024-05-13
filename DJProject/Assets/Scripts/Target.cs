@@ -10,7 +10,9 @@ public class Target : MonoBehaviour
     private GameObject player, meat;
     public bool hasGodMode;
     private bool canActivate;
-    private AudioManager audioManager;
+    
+    //private AudioManager audioManager;
+    
     private bool isEating;
     private Animator animator;
 
@@ -21,7 +23,7 @@ public class Target : MonoBehaviour
 
     void Start()
     {
-        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        //audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         player = GameObject.FindWithTag("Player");
         Physics2D.IgnoreLayerCollision(6, 7);
     }
@@ -66,7 +68,7 @@ public class Target : MonoBehaviour
         {
             UI.AddCoin();
             Destroy(gameObject);
-            audioManager.PlaySFX(audioManager.coin);
+            //audioManager.PlaySFX(audioManager.coin);
         }
     }
 
