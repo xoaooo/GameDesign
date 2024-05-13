@@ -8,6 +8,7 @@ public class UI : MonoBehaviour
     public static TMP_Text coinAmount;
     public static TMP_Text godUses;
     public static TMP_Text meatUses;
+    public static TMP_Text waveNumberUI;
 
     public static GameObject meat;
     public static GameObject star;
@@ -29,6 +30,7 @@ public class UI : MonoBehaviour
         star = GameObject.FindGameObjectWithTag("IconStar");
         wavePanel.SetActive(false);
         animator = GameObject.FindWithTag("Player").GetComponent<Animator>();
+        waveNumberUI.text = "1";
     }
 
     void Awake()
@@ -40,6 +42,8 @@ public class UI : MonoBehaviour
         textObject = GameObject.FindWithTag("UsesGod");
         godUses = textObject.GetComponent<TMP_Text>();
         wavePanel = GameObject.Find("WaveWinner");
+        textObject = GameObject.FindWithTag("WaveNumber");
+        waveNumberUI = textObject.GetComponent<TMP_Text>();
     }
 
     // Update is called once per frame
@@ -96,8 +100,9 @@ public class UI : MonoBehaviour
         wavePanel.SetActive(false);
         var waveSpawner = GameObject.FindWithTag("WaveSpawner");
         waveSpawner.GetComponent<SpawnEnemies>().waveStatus = 0;
-        var waveNumber = waveSpawner.GetComponent<SpawnEnemies>().waveNumber++;
+        var waveNumber = waveSpawner.GetComponent<SpawnEnemies>().NextWave();
         Debug.Log(waveNumber);
+        waveNumberUI.text = "" + waveNumber;
         if (waveNumber == 5)
             SceneManager.LoadScene("Ending");
         waveSpawner.GetComponent<SpawnEnemies>().waveTime = 30f + waveNumber * 5;

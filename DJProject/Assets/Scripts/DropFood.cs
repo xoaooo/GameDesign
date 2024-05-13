@@ -27,7 +27,7 @@ public class DropFood : MonoBehaviour
 
             meatCharges--;
             UI.updateMeat(meatCharges);
-            statistics.abilityCount++;
+            statistics.IncrementMeat();
 
 
         }

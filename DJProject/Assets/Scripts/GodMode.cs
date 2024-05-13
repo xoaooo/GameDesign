@@ -33,7 +33,7 @@ public class GodMode : MonoBehaviour
             {
                 if (godModeCharges > 0)
                 {
-                    statistics.abilityCount++;
+                    statistics.IncrementGod();
                     godModeCharges--;
                     UI.updateGod(godModeCharges);
                     UI.ActivateStarCooldown();

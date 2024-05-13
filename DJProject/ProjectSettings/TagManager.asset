@@ -23,6 +23,7 @@ TagManager:
   - WaveCleared
   - Ending
   - PowerUp
+  - WaveNumber
   layers:
   - Default
   - TransparentFX

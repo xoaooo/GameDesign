@@ -44,9 +44,7 @@ public class PowerUpObjects : MonoBehaviour
                 SoundFXManager.instance.PlayRandomSFXClip(powerups, transform, 0.1f);
                 player.RestoreHealth(healthRestoreAmount);
             }
-
-            statistics.powerUpCount++;
-
+            statistics.IncrementPickUps();
         }
     }
 }

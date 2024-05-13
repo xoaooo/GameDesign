@@ -6,7 +6,11 @@ public class SpawnEnemies : MonoBehaviour
     public int waveNumber = 1;
     public int waveStatus = 0; // 0 - Pick enemies; 1- Spawn enemies; 2 - End Wave
     public GameObject[] enemySpawners;
-
+    PlayerStatistics statistics;
+    private void Awake()
+    {
+        statistics = FindObjectOfType<PlayerStatistics>();
+    }
     // Update is called once per frame
     void Update()
     {
@@ -43,5 +47,12 @@ public class SpawnEnemies : MonoBehaviour
             }
         }
 
+    }
+
+    public int NextWave()
+    {
+        this.waveNumber++;
+        statistics.IncrementWave();
+        return this.waveNumber;
     }
 }

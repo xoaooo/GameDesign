@@ -15,10 +15,12 @@ public class Target : MonoBehaviour
     
     private bool isEating;
     private Animator animator;
+    PlayerStatistics statistics;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
+        statistics = FindObjectOfType<PlayerStatistics>();
     }
 
     void Start()
@@ -56,7 +58,7 @@ public class Target : MonoBehaviour
             {
                 isEating = false;
             }
-            
+
         }
 
         animator.SetBool("isEating", isEating);
@@ -67,6 +69,7 @@ public class Target : MonoBehaviour
         if (hasGodMode && collision.gameObject.CompareTag("Player"))
         {
             UI.AddCoin();
+            statistics.IncrementCoins(10);
             Destroy(gameObject);
             //audioManager.PlaySFX(audioManager.coin);
         }
