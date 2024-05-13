@@ -5463,7 +5463,7 @@ MonoBehaviour:
   waveTime: 30
   respawnTime: 10
   countdown: 10
-  waveNumber: 0
+  waveNumber: 1
   waveStatus: 0
   enemySpawners:
   - {fileID: 704415991}
@@ -22729,7 +22729,7 @@ GameObject:
   - component: {fileID: 1771982920}
   m_Layer: 5
   m_Name: Value
-  m_TagString: Untagged
+  m_TagString: WaveNumber
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
