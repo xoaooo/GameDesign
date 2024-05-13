@@ -1585,7 +1585,7 @@ MonoBehaviour:
   Time: {fileID: 48715269}
   Gold: {fileID: 1614135240}
   Waves: {fileID: 789356485}
-  Enemies: {fileID: 1943671849}
+  Pickups: {fileID: 1943671849}
   Power1: {fileID: 630781192}
   Power2: {fileID: 346782633}
   Power3: {fileID: 560057262}
