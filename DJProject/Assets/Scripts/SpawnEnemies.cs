@@ -46,12 +46,13 @@ public class SpawnEnemies : MonoBehaviour
                 //waveStatus = 0 when leaving menu
             }
         }
+
     }
 
     public int NextWave()
     {
-        waveNumber++;
+        this.waveNumber++;
         statistics.IncrementWave();
-        return waveNumber;
+        return this.waveNumber;
     }
 }
