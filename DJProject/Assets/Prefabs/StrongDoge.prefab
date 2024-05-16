@@ -176,7 +176,6 @@ MonoBehaviour:
   damage: 50
   speed: 2
   hasGodMode: 0
-  eat: {fileID: 8300000, guid: 5e8be79605f75774d9be92dbaf208f79, type: 3}
 --- !u!95 &-7894291606407905478
 Animator:
   serializedVersion: 5
