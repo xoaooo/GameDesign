@@ -17,6 +17,9 @@ public class Target : MonoBehaviour
     private Animator animator;
     PlayerStatistics statistics;
 
+    [SerializeField] AudioClip eat;
+
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -51,17 +54,20 @@ public class Target : MonoBehaviour
                 Debug.Log(speed);
                 transform.position = Vector2.MoveTowards(transform.position, meat.transform.position, speed * Time.deltaTime);
                 isEating = Vector2.Distance(transform.position, meat.transform.position) <= 2.5;
+                //SoundFXManager.instance.PlaySFXClip(eat, transform, 0.1f);
             }
             else if (player != null)
                 transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
             else
             {
                 isEating = false;
+                
             }
 
         }
 
         animator.SetBool("isEating", isEating);
+        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

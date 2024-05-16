@@ -7,6 +7,7 @@ public class SoundFXManager : MonoBehaviour
     public static SoundFXManager instance;
 
     [SerializeField] AudioSource soundFXObject;
+    [SerializeField] AudioSource musicObject;
 
     private void Awake()
     {
@@ -21,6 +22,7 @@ public class SoundFXManager : MonoBehaviour
         audioSource.clip = audio;
         audioSource.volume = volume;
 
+        audioSource.loop = false;
         audioSource.Play();
 
         float clipLength = audioSource.clip.length;
@@ -36,10 +38,23 @@ public class SoundFXManager : MonoBehaviour
         audioSource.clip = audio;
         audioSource.volume = volume;
 
+        audioSource.loop = false;
         audioSource.Play();
 
         float clipLength = audioSource.clip.length;
 
         Destroy(audioSource.gameObject, clipLength);
     }
+
+    public void PlayMusic(AudioClip music, Transform spawntransform, float volume)
+    {
+        AudioSource audioSource = Instantiate(musicObject, spawntransform.position, Quaternion.identity);
+        audioSource.clip = music;
+        audioSource.volume = volume;
+
+        audioSource.loop = true;
+        audioSource.Play();
+    }
+
+    //function to destroy music source.
 }

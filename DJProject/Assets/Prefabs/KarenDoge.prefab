@@ -175,9 +175,8 @@ MonoBehaviour:
   health: 200
   damage: 100
   speed: 1
-  coin: {fileID: 5693812885232298421, guid: 379c78f5fd61fe04b91ccd9c4d306306, type: 3}
   hasGodMode: 0
-  coinAmount: {fileID: 0}
+  eat: {fileID: 8300000, guid: 5e8be79605f75774d9be92dbaf208f79, type: 3}
 --- !u!95 &-5018216090209676292
 Animator:
   serializedVersion: 5
