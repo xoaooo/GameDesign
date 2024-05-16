@@ -1730,9 +1730,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84e1e9592986ee042bbe166ba6aad92e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerUpCount: 0
-  abilityCount: 0
-  gameTime: 0
 --- !u!114 &66383508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1745,9 +1742,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84e1e9592986ee042bbe166ba6aad92e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerUpCount: 0
-  abilityCount: 0
-  gameTime: 0
 --- !u!4 &69774327 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7196101835270695838, guid: 957001356de41f64bb3d59f393655b34, type: 3}
@@ -5048,10 +5042,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 409413861}
-  - component: {fileID: 409413862}
   m_Layer: 0
   m_Name: PowerUp (3)
-  m_TagString: Untagged
+  m_TagString: PowerUpPosition
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5071,22 +5064,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 494047686}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &409413862
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 409413860}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3a80a6d3f89557409fc7b4af5ac4785, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objects:
-  - {fileID: 2393448587118469532, guid: bd74a0c326637dd4f86efdc265b796d4, type: 3}
-  - {fileID: 2393448587118469532, guid: 782b8ced0c579664bb58c45e48213c03, type: 3}
-  - {fileID: 2393448587118469532, guid: 660c1e6f7a1005b4eaa2f58105e9c065, type: 3}
 --- !u!1001 &409577140
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5822,6 +5799,7 @@ GameObject:
   - component: {fileID: 464825691}
   - component: {fileID: 464825690}
   - component: {fileID: 464825689}
+  - component: {fileID: 464825692}
   m_Layer: 5
   m_Name: NextWave
   m_TagString: Untagged
@@ -5905,6 +5883,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 464825692}
+        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
+        m_MethodName: OnButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &464825690
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5943,6 +5933,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 464825687}
   m_CullTransparentMesh: 1
+--- !u!114 &464825692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 464825687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a8de3411d51cdb489d23bd553d2b4d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerUpSpawnScript: {fileID: 0}
 --- !u!4 &471360414 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7196101835270695838, guid: 957001356de41f64bb3d59f393655b34, type: 3}
@@ -6175,6 +6178,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 494047686}
+  - component: {fileID: 494047687}
   m_Layer: 0
   m_Name: PowerUps
   m_TagString: Untagged
@@ -6202,6 +6206,7 @@ Transform:
   - {fileID: 1761843001}
   - {fileID: 1502186658}
   - {fileID: 743074315}
+  - {fileID: 1504040788}
   - {fileID: 778829788}
   - {fileID: 1164880531}
   - {fileID: 509443432}
@@ -6211,9 +6216,42 @@ Transform:
   - {fileID: 1306813747}
   - {fileID: 848640007}
   - {fileID: 1304659402}
-  - {fileID: 1504040788}
   m_Father: {fileID: 1694959886}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &494047687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 494047685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3a80a6d3f89557409fc7b4af5ac4785, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objects:
+  - {fileID: 2393448587118469532, guid: bd74a0c326637dd4f86efdc265b796d4, type: 3}
+  - {fileID: 2393448587118469532, guid: 782b8ced0c579664bb58c45e48213c03, type: 3}
+  - {fileID: 2393448587118469532, guid: 660c1e6f7a1005b4eaa2f58105e9c065, type: 3}
+  positions:
+  - {fileID: 1634701107}
+  - {fileID: 1929084685}
+  - {fileID: 1736580056}
+  - {fileID: 409413860}
+  - {fileID: 1761843000}
+  - {fileID: 1502186657}
+  - {fileID: 743074314}
+  - {fileID: 1504040787}
+  - {fileID: 778829787}
+  - {fileID: 1164880530}
+  - {fileID: 509443431}
+  - {fileID: 1895717823}
+  - {fileID: 1806703559}
+  - {fileID: 982269074}
+  - {fileID: 1306813746}
+  - {fileID: 848640006}
+  - {fileID: 1304659401}
 --- !u!1 &494826472
 GameObject:
   m_ObjectHideFlags: 0
@@ -6623,10 +6661,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 509443432}
-  - component: {fileID: 509443433}
   m_Layer: 0
   m_Name: PowerUp (10)
-  m_TagString: Untagged
+  m_TagString: PowerUpPosition
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6646,22 +6683,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 494047686}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &509443433
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 509443431}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3a80a6d3f89557409fc7b4af5ac4785, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objects:
-  - {fileID: 2393448587118469532, guid: bd74a0c326637dd4f86efdc265b796d4, type: 3}
-  - {fileID: 2393448587118469532, guid: 782b8ced0c579664bb58c45e48213c03, type: 3}
-  - {fileID: 2393448587118469532, guid: 660c1e6f7a1005b4eaa2f58105e9c065, type: 3}
 --- !u!1001 &510527127
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10223,10 +10244,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 743074315}
-  - component: {fileID: 743074316}
   m_Layer: 0
   m_Name: PowerUp (6)
-  m_TagString: Untagged
+  m_TagString: PowerUpPosition
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10246,22 +10266,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 494047686}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &743074316
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 743074314}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3a80a6d3f89557409fc7b4af5ac4785, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objects:
-  - {fileID: 2393448587118469532, guid: bd74a0c326637dd4f86efdc265b796d4, type: 3}
-  - {fileID: 2393448587118469532, guid: 782b8ced0c579664bb58c45e48213c03, type: 3}
-  - {fileID: 2393448587118469532, guid: 660c1e6f7a1005b4eaa2f58105e9c065, type: 3}
 --- !u!4 &752353236 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7196101835270695838, guid: 957001356de41f64bb3d59f393655b34, type: 3}
@@ -10350,10 +10354,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 778829788}
-  - component: {fileID: 778829789}
   m_Layer: 0
   m_Name: PowerUp (8)
-  m_TagString: Untagged
+  m_TagString: PowerUpPosition
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10373,22 +10376,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 494047686}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &778829789
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 778829787}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3a80a6d3f89557409fc7b4af5ac4785, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objects:
-  - {fileID: 2393448587118469532, guid: bd74a0c326637dd4f86efdc265b796d4, type: 3}
-  - {fileID: 2393448587118469532, guid: 782b8ced0c579664bb58c45e48213c03, type: 3}
-  - {fileID: 2393448587118469532, guid: 660c1e6f7a1005b4eaa2f58105e9c065, type: 3}
 --- !u!1001 &780385185
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11441,10 +11428,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 848640007}
-  - component: {fileID: 848640008}
   m_Layer: 0
   m_Name: PowerUp (15)
-  m_TagString: Untagged
+  m_TagString: PowerUpPosition
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11464,22 +11450,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 494047686}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &848640008
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 848640006}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3a80a6d3f89557409fc7b4af5ac4785, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objects:
-  - {fileID: 2393448587118469532, guid: bd74a0c326637dd4f86efdc265b796d4, type: 3}
-  - {fileID: 2393448587118469532, guid: 782b8ced0c579664bb58c45e48213c03, type: 3}
-  - {fileID: 2393448587118469532, guid: 660c1e6f7a1005b4eaa2f58105e9c065, type: 3}
 --- !u!4 &852731231 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7196101835270695838, guid: 957001356de41f64bb3d59f393655b34, type: 3}
@@ -12899,10 +12869,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 982269075}
-  - component: {fileID: 982269076}
   m_Layer: 0
   m_Name: PowerUp (13)
-  m_TagString: Untagged
+  m_TagString: PowerUpPosition
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12922,22 +12891,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 494047686}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &982269076
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 982269074}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3a80a6d3f89557409fc7b4af5ac4785, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objects:
-  - {fileID: 2393448587118469532, guid: bd74a0c326637dd4f86efdc265b796d4, type: 3}
-  - {fileID: 2393448587118469532, guid: 782b8ced0c579664bb58c45e48213c03, type: 3}
-  - {fileID: 2393448587118469532, guid: 660c1e6f7a1005b4eaa2f58105e9c065, type: 3}
 --- !u!4 &985247348 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7196101835270695838, guid: 957001356de41f64bb3d59f393655b34, type: 3}
@@ -14019,10 +13972,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1164880531}
-  - component: {fileID: 1164880532}
   m_Layer: 0
   m_Name: PowerUp (9)
-  m_TagString: Untagged
+  m_TagString: PowerUpPosition
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14042,22 +13994,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 494047686}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1164880532
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1164880530}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3a80a6d3f89557409fc7b4af5ac4785, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objects:
-  - {fileID: 2393448587118469532, guid: bd74a0c326637dd4f86efdc265b796d4, type: 3}
-  - {fileID: 2393448587118469532, guid: 782b8ced0c579664bb58c45e48213c03, type: 3}
-  - {fileID: 2393448587118469532, guid: 660c1e6f7a1005b4eaa2f58105e9c065, type: 3}
 --- !u!1001 &1170354271
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16131,10 +16067,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1304659402}
-  - component: {fileID: 1304659403}
   m_Layer: 0
   m_Name: PowerUp (16)
-  m_TagString: Untagged
+  m_TagString: PowerUpPosition
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16154,22 +16089,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 494047686}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1304659403
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1304659401}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3a80a6d3f89557409fc7b4af5ac4785, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objects:
-  - {fileID: 2393448587118469532, guid: bd74a0c326637dd4f86efdc265b796d4, type: 3}
-  - {fileID: 2393448587118469532, guid: 782b8ced0c579664bb58c45e48213c03, type: 3}
-  - {fileID: 2393448587118469532, guid: 660c1e6f7a1005b4eaa2f58105e9c065, type: 3}
 --- !u!4 &1306718481 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8429616122836907361, guid: 8ffcc96be401f6f46bf6b3b97547d8e0, type: 3}
@@ -16184,10 +16103,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1306813747}
-  - component: {fileID: 1306813748}
   m_Layer: 0
   m_Name: PowerUp (14)
-  m_TagString: Untagged
+  m_TagString: PowerUpPosition
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16207,22 +16125,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 494047686}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1306813748
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1306813746}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3a80a6d3f89557409fc7b4af5ac4785, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objects:
-  - {fileID: 2393448587118469532, guid: bd74a0c326637dd4f86efdc265b796d4, type: 3}
-  - {fileID: 2393448587118469532, guid: 782b8ced0c579664bb58c45e48213c03, type: 3}
-  - {fileID: 2393448587118469532, guid: 660c1e6f7a1005b4eaa2f58105e9c065, type: 3}
 --- !u!1001 &1307774241
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18594,10 +18496,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1502186658}
-  - component: {fileID: 1502186659}
   m_Layer: 0
   m_Name: PowerUp (5)
-  m_TagString: Untagged
+  m_TagString: PowerUpPosition
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18617,22 +18518,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 494047686}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1502186659
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1502186657}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3a80a6d3f89557409fc7b4af5ac4785, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objects:
-  - {fileID: 2393448587118469532, guid: bd74a0c326637dd4f86efdc265b796d4, type: 3}
-  - {fileID: 2393448587118469532, guid: 782b8ced0c579664bb58c45e48213c03, type: 3}
-  - {fileID: 2393448587118469532, guid: 660c1e6f7a1005b4eaa2f58105e9c065, type: 3}
 --- !u!1 &1504040787
 GameObject:
   m_ObjectHideFlags: 0
@@ -18642,10 +18527,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1504040788}
-  - component: {fileID: 1504040789}
   m_Layer: 0
   m_Name: PowerUp (7)
-  m_TagString: Untagged
+  m_TagString: PowerUpPosition
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18665,22 +18549,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 494047686}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1504040789
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1504040787}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3a80a6d3f89557409fc7b4af5ac4785, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objects:
-  - {fileID: 2393448587118469532, guid: bd74a0c326637dd4f86efdc265b796d4, type: 3}
-  - {fileID: 2393448587118469532, guid: 782b8ced0c579664bb58c45e48213c03, type: 3}
-  - {fileID: 2393448587118469532, guid: 660c1e6f7a1005b4eaa2f58105e9c065, type: 3}
 --- !u!4 &1506837464 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3234973645404692470, guid: acc5f878d01901f4aafbd5dfa1b42f50, type: 3}
@@ -20130,10 +19998,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1634701108}
-  - component: {fileID: 1634701109}
   m_Layer: 0
   m_Name: PowerUp
-  m_TagString: Untagged
+  m_TagString: PowerUpPosition
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20153,22 +20020,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 494047686}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1634701109
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1634701107}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3a80a6d3f89557409fc7b4af5ac4785, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objects:
-  - {fileID: 2393448587118469532, guid: bd74a0c326637dd4f86efdc265b796d4, type: 3}
-  - {fileID: 2393448587118469532, guid: 782b8ced0c579664bb58c45e48213c03, type: 3}
-  - {fileID: 2393448587118469532, guid: 660c1e6f7a1005b4eaa2f58105e9c065, type: 3}
 --- !u!1001 &1635748663
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21378,10 +21229,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1736580057}
-  - component: {fileID: 1736580058}
   m_Layer: 0
   m_Name: PowerUp (2)
-  m_TagString: Untagged
+  m_TagString: PowerUpPosition
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21401,22 +21251,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 494047686}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1736580058
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1736580056}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3a80a6d3f89557409fc7b4af5ac4785, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objects:
-  - {fileID: 2393448587118469532, guid: bd74a0c326637dd4f86efdc265b796d4, type: 3}
-  - {fileID: 2393448587118469532, guid: 782b8ced0c579664bb58c45e48213c03, type: 3}
-  - {fileID: 2393448587118469532, guid: 660c1e6f7a1005b4eaa2f58105e9c065, type: 3}
 --- !u!1001 &1742044272
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21863,10 +21697,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1761843001}
-  - component: {fileID: 1761843002}
   m_Layer: 0
   m_Name: PowerUp (4)
-  m_TagString: Untagged
+  m_TagString: PowerUpPosition
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21886,22 +21719,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 494047686}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1761843002
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1761843000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3a80a6d3f89557409fc7b4af5ac4785, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objects:
-  - {fileID: 2393448587118469532, guid: bd74a0c326637dd4f86efdc265b796d4, type: 3}
-  - {fileID: 2393448587118469532, guid: 782b8ced0c579664bb58c45e48213c03, type: 3}
-  - {fileID: 2393448587118469532, guid: 660c1e6f7a1005b4eaa2f58105e9c065, type: 3}
 --- !u!1 &1771982918
 GameObject:
   m_ObjectHideFlags: 0
@@ -22589,10 +22406,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1806703560}
-  - component: {fileID: 1806703561}
   m_Layer: 0
   m_Name: PowerUp (12)
-  m_TagString: Untagged
+  m_TagString: PowerUpPosition
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22612,22 +22428,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 494047686}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1806703561
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1806703559}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3a80a6d3f89557409fc7b4af5ac4785, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objects:
-  - {fileID: 2393448587118469532, guid: bd74a0c326637dd4f86efdc265b796d4, type: 3}
-  - {fileID: 2393448587118469532, guid: 782b8ced0c579664bb58c45e48213c03, type: 3}
-  - {fileID: 2393448587118469532, guid: 660c1e6f7a1005b4eaa2f58105e9c065, type: 3}
 --- !u!1 &1809553213
 GameObject:
   m_ObjectHideFlags: 0
@@ -24052,10 +23852,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1895717824}
-  - component: {fileID: 1895717825}
   m_Layer: 0
   m_Name: PowerUp (11)
-  m_TagString: Untagged
+  m_TagString: PowerUpPosition
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24075,22 +23874,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 494047686}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1895717825
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1895717823}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3a80a6d3f89557409fc7b4af5ac4785, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objects:
-  - {fileID: 2393448587118469532, guid: bd74a0c326637dd4f86efdc265b796d4, type: 3}
-  - {fileID: 2393448587118469532, guid: 782b8ced0c579664bb58c45e48213c03, type: 3}
-  - {fileID: 2393448587118469532, guid: 660c1e6f7a1005b4eaa2f58105e9c065, type: 3}
 --- !u!4 &1900112666 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7196101835270695838, guid: 957001356de41f64bb3d59f393655b34, type: 3}
@@ -24492,10 +24275,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1929084686}
-  - component: {fileID: 1929084687}
   m_Layer: 0
   m_Name: PowerUp (1)
-  m_TagString: Untagged
+  m_TagString: PowerUpPosition
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24515,22 +24297,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 494047686}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1929084687
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1929084685}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3a80a6d3f89557409fc7b4af5ac4785, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objects:
-  - {fileID: 2393448587118469532, guid: bd74a0c326637dd4f86efdc265b796d4, type: 3}
-  - {fileID: 2393448587118469532, guid: 782b8ced0c579664bb58c45e48213c03, type: 3}
-  - {fileID: 2393448587118469532, guid: 660c1e6f7a1005b4eaa2f58105e9c065, type: 3}
 --- !u!4 &1931017502 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7196101835270695838, guid: 957001356de41f64bb3d59f393655b34, type: 3}

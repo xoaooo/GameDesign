@@ -35,8 +35,11 @@ public class Target : MonoBehaviour
 
     void Update()
     {
-        canActivate = player.GetComponent<GodMode>().canActivate;
-        hasGodMode = player.GetComponent<GodMode>().hasGodMode;
+        if (player != null)
+        {
+            canActivate = player.GetComponent<GodMode>().canActivate;
+            hasGodMode = player.GetComponent<GodMode>().hasGodMode;
+        }
 
         if (canActivate && Input.GetKeyDown(KeyCode.Mouse0))
         {
