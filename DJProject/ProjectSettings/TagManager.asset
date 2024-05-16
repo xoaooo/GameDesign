@@ -24,6 +24,7 @@ TagManager:
   - Ending
   - PowerUp
   - WaveNumber
+  - PowerUpPosition
   layers:
   - Default
   - TransparentFX

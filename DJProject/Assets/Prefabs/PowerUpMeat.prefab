@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8456158846200726922}
   m_Layer: 0
   m_Name: PowerUpMeat
-  m_TagString: Untagged
+  m_TagString: PowerUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -143,4 +143,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bec03c32adade9b40b6d21bb86e8809d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  powerups: []
   type: 1
