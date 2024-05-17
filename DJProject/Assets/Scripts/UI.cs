@@ -19,6 +19,8 @@ public class UI : MonoBehaviour
 
     private static Animator animator;
 
+    [SerializeField] AudioClip musicBackground;
+
     // Start is called before the first frame update
     public static int amount;
     void Start()
@@ -31,6 +33,8 @@ public class UI : MonoBehaviour
         wavePanel.SetActive(false);
         animator = GameObject.FindWithTag("Player").GetComponent<Animator>();
         waveNumberUI.text = "1";
+
+        SoundFXManager.instance.PlayMusic(musicBackground, transform, 0.15f);
     }
 
     void Awake()

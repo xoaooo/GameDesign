@@ -56,8 +56,9 @@ public class CharacterHealth : MonoBehaviour
             {
                 health -= 10f;
                 healthBar.fillAmount = health / 100f;
-                
+
                 //audioManager.PlaySFX(audioManager.damage);
+                SoundFXManager.instance.PlayRandomSFXClip(damage, transform, 0.2f);
                 knockback.PlayFeedback(collision.gameObject);
                 
                 StartCoroutine(InvulnerabilityTimer());
@@ -100,7 +101,7 @@ public class CharacterHealth : MonoBehaviour
         {
             movement.CanMove();
         }
-        //audioManager.PlayMusic(audioManager.death);
+        SoundFXManager.instance.PlaySFXClip(death, transform, 0.1f);
         
         Destroy(gameObject);
         
