@@ -1806,7 +1806,7 @@ MonoBehaviour:
   speed: 0
   godModeTimer: 5
   godModeCooldown: 5
-  godModeCharges: 3
+  godModeCharges: 5
 --- !u!114 &66383500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1843,7 +1843,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90b64322afcf79145921492f2c9a92ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meatCharges: 3
+  meatCharges: 5
 --- !u!114 &66383507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1856,9 +1856,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84e1e9592986ee042bbe166ba6aad92e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerUpCount: 0
-  abilityCount: 0
-  gameTime: 0
 --- !u!114 &66383508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1871,9 +1868,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84e1e9592986ee042bbe166ba6aad92e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerUpCount: 0
-  abilityCount: 0
-  gameTime: 0
 --- !u!4 &69774327 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7196101835270695838, guid: 957001356de41f64bb3d59f393655b34, type: 3}
