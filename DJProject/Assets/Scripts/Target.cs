@@ -32,36 +32,39 @@ public class Target : MonoBehaviour
 
     void Update()
     {
-        canActivate = player.GetComponent<GodMode>().canActivate;
-        hasGodMode = player.GetComponent<GodMode>().hasGodMode;
-
-        if (canActivate && Input.GetKeyDown(KeyCode.Mouse0))
+        if (player != null)
         {
-            hasGodMode = true;
-            StartCoroutine(GodModeTimer());
-            hasGodMode = false;
-        }
+            canActivate = player.GetComponent<GodMode>().canActivate;
+            hasGodMode = player.GetComponent<GodMode>().hasGodMode;
 
-
-        if (!hasGodMode)
-        {
-            meat = GameObject.FindWithTag("Meat");
-            if (meat != null)
+            if (canActivate && Input.GetKeyDown(KeyCode.Mouse0))
             {
-                Debug.Log(speed);
-                transform.position = Vector2.MoveTowards(transform.position, meat.transform.position, speed * Time.deltaTime);
-                isEating = Vector2.Distance(transform.position, meat.transform.position) <= 2.5;
-            }
-            else if (player != null)
-                transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
-            else
-            {
-                isEating = false;
+                hasGodMode = true;
+                StartCoroutine(GodModeTimer());
+                hasGodMode = false;
             }
 
-        }
 
-        animator.SetBool("isEating", isEating);
+            if (!hasGodMode)
+            {
+                meat = GameObject.FindWithTag("Meat");
+                if (meat != null)
+                {
+                    Debug.Log(speed);
+                    transform.position = Vector2.MoveTowards(transform.position, meat.transform.position, speed * Time.deltaTime);
+                    isEating = Vector2.Distance(transform.position, meat.transform.position) <= 2.5;
+                }
+                else if (player != null)
+                    transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+                else
+                {
+                    isEating = false;
+                }
+
+            }
+
+            animator.SetBool("isEating", isEating);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

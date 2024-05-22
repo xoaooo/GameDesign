@@ -515,7 +515,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: e262e32a8f1268e48b2befae8693abf2, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.4
   m_Pitch: 1
@@ -1322,16 +1322,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdbf12eef13385347bd4cd8ba97bf32d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicSource: {fileID: 731851716}
-  SFXSource: {fileID: 1154101033}
-  damage: {fileID: 8300000, guid: 797acff87cfad7742a2da78208a177a8, type: 3}
-  godMode: {fileID: 8300000, guid: 4b9315158ed55d147accc381dc32f2ef, type: 3}
-  meat: {fileID: 8300000, guid: 6eabc40e01f80fd4aa27435919dcd69c, type: 3}
-  backgroundMusic: {fileID: 8300000, guid: e262e32a8f1268e48b2befae8693abf2, type: 3}
-  coin: {fileID: 8300000, guid: 27831a07a39a287459aab2a7bb7cb54f, type: 3}
-  death: {fileID: 8300000, guid: ba4c9805660755146a07373f3728da76, type: 3}
-  dash: {fileID: 8300000, guid: cd5e69a5c41a5ae4ba471c59c63101df, type: 3}
-  nope: {fileID: 8300000, guid: d64f753f12762774091f812e0ee5a69a, type: 3}
 --- !u!4 &2065406992
 Transform:
   m_ObjectHideFlags: 0
