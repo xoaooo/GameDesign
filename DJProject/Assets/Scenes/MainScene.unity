@@ -14193,6 +14193,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: IconMeat
       objectReference: {fileID: 0}
+    - target: {fileID: 7130341245702611186, guid: cefc4b108b91d1b4085474d5c96dd89d, type: 3}
+      propertyPath: m_TagString
+      value: WaveTimer
+      objectReference: {fileID: 0}
     - target: {fileID: 7323826430647930680, guid: cefc4b108b91d1b4085474d5c96dd89d, type: 3}
       propertyPath: m_Layer
       value: 5

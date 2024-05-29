@@ -7,6 +7,8 @@ public class SpawnEnemies : MonoBehaviour
     public int waveStatus = 0; // 0 - Pick enemies; 1- Spawn enemies; 2 - End Wave
     public GameObject[] enemySpawners;
     PlayerStatistics statistics;
+
+    //UI.waveTimer
     private void Awake()
     {
         statistics = FindObjectOfType<PlayerStatistics>();
@@ -31,6 +33,7 @@ public class SpawnEnemies : MonoBehaviour
             }
 
             waveTime -= Time.deltaTime;
+            UI.updateTimer(waveTime);
             countdown -= Time.deltaTime;
 
             if (waveTime <= 0)

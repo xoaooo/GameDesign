@@ -17,6 +17,8 @@ public class UI : MonoBehaviour
     public static GameObject wavePanel;
     public static GameObject waveButton;
 
+    public static TMP_Text waveTimer;
+
     private static Animator animator;
 
     [SerializeField] AudioClip musicBackground;
@@ -48,6 +50,8 @@ public class UI : MonoBehaviour
         wavePanel = GameObject.Find("WaveWinner");
         textObject = GameObject.FindWithTag("WaveNumber");
         waveNumberUI = textObject.GetComponent<TMP_Text>();
+        textObject = GameObject.FindWithTag("WaveTimer");
+        waveTimer = textObject.GetComponent<TMP_Text>();
     }
 
     // Update is called once per frame
@@ -115,5 +119,11 @@ public class UI : MonoBehaviour
         Time.timeScale = 1;
         animator.SetBool("hasGodmode", false);
 
+    }
+    public static void updateTimer(float time)
+    {
+        string formattedNumber = time.ToString("F2");
+        float roundedNumber = float.Parse(formattedNumber);
+        waveTimer.text = roundedNumber.ToString();
     }
 }

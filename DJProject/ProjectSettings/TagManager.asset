@@ -24,6 +24,7 @@ TagManager:
   - Ending
   - PowerUp
   - WaveNumber
+  - WaveTimer
   layers:
   - Default
   - TransparentFX
