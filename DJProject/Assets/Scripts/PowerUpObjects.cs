@@ -19,7 +19,7 @@ public class PowerUpObjects : MonoBehaviour
         Health,
     }
     public PowerUpTypes type;
-    private const float healthRestoreAmount = 10f;
+    private const float healthRestoreAmount = 40f;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {

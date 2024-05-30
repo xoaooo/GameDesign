@@ -109,7 +109,6 @@ public class UI : MonoBehaviour
         var waveSpawner = GameObject.FindWithTag("WaveSpawner");
         waveSpawner.GetComponent<SpawnEnemies>().waveStatus = 0;
         var waveNumber = waveSpawner.GetComponent<SpawnEnemies>().NextWave();
-        Debug.Log(waveNumber);
         waveNumberUI.text = "" + waveNumber;
         if (waveNumber == 5)
             SceneManager.LoadScene("Ending");

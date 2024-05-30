@@ -25,6 +25,7 @@ TagManager:
   - PowerUp
   - WaveNumber
   - WaveTimer
+  - PowerUpPostion
   layers:
   - Default
   - TransparentFX

@@ -1,7 +1,10 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class SpawnEnemies : MonoBehaviour
 {
+    public GameObject[] objects;
+    public GameObject[] positions;
     public float enemyScale, waveTime, respawnTime, countdown;
     public int waveNumber = 1;
     public int waveStatus = 0; // 0 - Pick enemies; 1- Spawn enemies; 2 - End Wave
@@ -18,6 +21,19 @@ public class SpawnEnemies : MonoBehaviour
     {
         if (waveStatus == 0)
         {
+            Debug.Log(positions.Length);
+            var existingPowerUps = GameObject.FindGameObjectsWithTag("PowerUp");
+            foreach (var powerUp in existingPowerUps)
+            {
+                Destroy(powerUp);
+            }
+            foreach (var position in positions)
+            {
+                int rand = Random.Range(0, objects.Length);
+                int spawn = Random.Range(0, 10);
+                if (spawn < 3)
+                    Instantiate(objects[rand], position.transform.position, Quaternion.identity);
+            }
             waveStatus = 1;
         }
 
